@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="jumbotron">
+        <div class="head">
+            <h3>
+                {{recipe.category}} >> {{recipe.name}}
+            </h3>
+        </div>
+        <br/>
+        <div class="row">
+            <div class="col">
+                <h6><label>Ingredients</label></h6>
+                <li *ngFor="let item of recipe.ingredients; let i = index">
+                    {{item}}
+                </li>
+
+            </div>
+        </div>
+        <br/>
+        <div class="row">
+            <div class="col">
+                <h6><label>Directions: </label></h6>
+                <li *ngFor="let dir of recipe.directions; let x = index">{{x+1}} - {{dir}}</li>
+
+            </div>
+        </div>
+        <br/>
+        <h3>{{recipe.description}}</h3>
+        <h6><label>Source: </label></h6>
+        <h6><a href="{{recipe.source}}">{{recipe.source}}</a> </h6>
+    </div>
+</div>

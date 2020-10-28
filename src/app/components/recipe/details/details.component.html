@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="jumbotron">
+        <div class="head">
+            <h3>
+                {{recipe.category}} >> {{recipe.name}}
+            </h3>
+        </div>
+        <div class="row">
+            <div class="column">
+                <a class="card" *ngFor="let item of recipe.ingredients; let i = index">
+                    {{item[i]}}
+                </a>
+
+            </div>
+            <br/>
+        </div>
+        <div class="row">
+            <p>{{recipe.directions}}</p>
+            <br/>
+        </div>
+        <h3>{{recipe.description}}</h3>
+        <h6><a href="{{recipe.url}}">{{recipe.url}}</a> </h6>
+    </div>
+</div>

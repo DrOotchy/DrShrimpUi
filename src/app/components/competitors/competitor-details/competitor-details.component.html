@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="jumbotron">
+        <img src={{competitor.images[0].imageUrl}} height="200px">
+        <h3>
+            {{competitor.name}} Details
+        </h3>
+        <p>{{competitor.area}}</p>
+        <br/>
+        <h3>{{competitor.description}}</h3>
+        <h6><a href="{{competitor.url}}">{{competitor.url}}</a> </h6>
+        <p>{{competitor.coverImage}}</p>
+        <br/>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    <a href="/public/images/Competitors/image-1599270259549.jpg">
+                        <img src="/public/images/Competitors/image-1599270259549.jpg" alt="Lights" style="width:100%">
+                        <div class="caption">
+                            <p>Lorem ipsum...</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <app-singleimage [childMessage]="message"></app-singleimage>
+            </div>
+        </div>
+
+    </div>

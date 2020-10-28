@@ -1,0 +1,32 @@
+<form class="form">
+    <div class="form-row col-md-6">
+        <input [(ngModel)]="expenses.amount" name="amount" type="text" class="form-control" placeholder="Amount">
+    </div>
+    <br/>
+    <div class="form-row col-md-6">
+        <input [(ngModel)]="expenses.title" name="title" type="text" class="form-control" placeholder="Title">
+    </div>
+    <br/>
+    <div class="form-row col-md-6">
+        <textarea [(ngModel)]="expenses.notes" name="notes" type="textarea" rows="3" class="form-control" placeholder="Notes"> </textarea>
+    </div>
+    <br/>
+
+    <div class="form-row col-md-6">
+        <select [(ngModel)]="expenses.status" id="group" class="form-control">
+  <option value="Paid">Paid</option>
+  <option value="Estimate">Estimate</option>
+  <option value="DownPayment">Down-Payment</option>
+    <option value="Installment">Installment</option>
+
+
+</select>
+    </div>
+    <br/>
+    <div class="form-row col-md-6">
+
+    </div>
+    <div class="form-row col-md-6">
+        <button (click)="addexpense()" type="button" class="btn btn-secondary">Add Expense</button>
+    </div>
+</form>

@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="jumbotron">
+        <div class="container">
+            <div class="column">
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                Add Rercipe
+              </button>
+                <br/>
+                <div class="collapse" id="collapseOne">
+                    <div class="card card-body">
+                        <app-addrecipe></app-addrecipe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div class="columnOne" [id]="'accordion' + '99'" role="tablist" aria-multiselectable="true">
+            <div class="card" *ngFor="let itemKey of allRecipies | keyvalue; let i = index">
+                <div role="tab" [id]="'heading' + '99'">
+                    <h4>
+                        <a role="button" data-toggle="collapse" [attr.data-parent]="'#accordion' + '99'" [href]="'#collapse' + '99' + i" aria-expanded="true" [attr.aria-controls]="'collapse' + '99' + i">
+                            <div class="card-header" [id]="'heading'+i">
+                                <span class="badge">{{i + 1}} </span> {{itemKey.key}}
+                            </div>
+                        </a>
+                    </h4>
+                    <div [id]="'collapse' + '99' + i" class="panel-collapse collapse in" role="tabpanel" [attr.aria-labelledby]="'heading' + '99'">
+                        <div class="panel-body">
+                            <div class="col" *ngFor="let item of itemKey.value; let i = index">
+                                <div class="card-header">
+                                    <a [routerLinkActive]="['active']" [routerLink]="['/recipesdetails', item._id]">
+                                        <span class="badge">{{i+1}}</span> - {{item.name}}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

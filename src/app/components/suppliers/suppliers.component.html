@@ -1,0 +1,40 @@
+<div class="jumbotron">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" (click)="getSupplier()" data-toggle="tab" href="#all">All</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" (click)="getShrimp()" data-toggle="tab" href="#shrimp">Shrimp</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" (click)="getPlastics()" href="#plastics">Plastics</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " data-toggle="tab" (click)="getKitchen()" href="#kitchen">kitchenweare</a>
+        </li>
+        <li class="nav-item">
+            <a href="#printables" data-toggle="tab" (click)="getPrintables()" class="nav-link">Printables</a>
+        </li>
+    </ul>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">mobile</th>
+                <th scope="col">location</th>
+                <th scope="col">notes</th>
+                <th scope="col">edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table-primary" *ngFor="let supplier of allSupliers">
+                <td>{{supplier.name}}</td>
+                <td> {{supplier.mobile}} </td>
+                <td>{{supplier.location}} </td>
+                <td>{{supplier.notes}}</td>
+                <td><button class="btn btn-warning">Edit</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

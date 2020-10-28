@@ -1,0 +1,36 @@
+<div class="jumbotron">
+    <h3>Expenses</h3>
+
+    <div class="row">
+        
+        <div class="col-md-4">
+            <h3>total: {{total}}</h3>
+            <div class="columnOne" [id]="'accordion' + '99'" role="tablist" aria-multiselectable="true">
+                <div *ngFor="let item of expenses; let i = index;">
+                    <div role="tab" [id]="'heading' + '99'">
+                        <h4>
+                            <a role="button" data-toggle="collapse" [attr.data-parent]="'#accordion' + '99'" [href]="'#collapse' + '99' + i" aria-expanded="true" [attr.aria-controls]="'collapse' + '99' + i">
+                                <div class="card-header" [id]="'heading'+i">
+                                    <span class="badge">{{item.amount}} LE.</span> - {{item.title}}
+                                </div>
+                            </a>
+                        </h4>
+                        <div [id]="'collapse' + '99' + i" class="panel-collapse collapse in" role="tabpanel" [attr.aria-labelledby]="'heading' + '99'">
+                            <div class="panel-body">
+                                <div class="card-body">
+                                    <p> {{item.notes}} </p>
+                                    <p class="card-subtitle text-muted">Paid on : {{item.Date | date:'shortDate'}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+            <app-add></app-add>
+        </div>
+    </div>
+</div>

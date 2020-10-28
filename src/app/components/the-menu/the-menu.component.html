@@ -1,0 +1,170 @@
+<div class="jumbotron">
+
+
+    <div class="row">
+        <div class="column">
+            <h1>Dr Shrimp menu</h1>
+            <br/>
+            <button class="btn btn-secondary float-left" [routerLink]="['/additem']">Add Item</button>
+        </div>
+
+    </div>
+    <br/>
+    <div id="accordion">
+        <div class="card">
+            <h5 class="mb-0">
+                <a (click)="getsub('Soup')" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <div class="card-header" id="headingOne">
+                        Soup
+                    </div>
+                </a>
+            </h5>
+            <div id="collapseOne" class="card-body collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="row">
+                    <div class="column" *ngFor="let item of themenu; let i = index">
+                        <div class="card mb-2">
+                            <div class="card-header" [id]="'heading'+ i">
+                                <h5 class="card-title">{{item.title}} </h5>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-subtitle text-muted">{{item.shortDesc}}</h6>
+                            </div>
+                            <div class="card-footer text-muted">
+                                {{item.price}} LE
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <h5 class="mb-0">
+                <a (click)="getsub('Salad')" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <div class="card-header" id="headingTwo">
+                        Salad
+                    </div>
+                </a>
+            </h5>
+            <div id="collapseTwo" class="card-body collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div class="row">
+                    <div class="column" *ngFor="let soup of themenu; let i = index">
+                        <div class="card mb-2">
+                            <div class="card-header" [id]="'heading'+ i">
+                                <h5 class="card-title">{{soup.title}} </h5>
+
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-subtitle text-muted">{{soup.shortDesc}}</h6>
+                            </div>
+                            <div class="card-footer text-muted">
+                                {{soup.price}} LE
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingThree">
+                <h5 class="mb-0">
+                    <a (click)="getsub('MainDish')" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Main Dish
+                    </a>
+                </h5>
+            </div>
+            <div id="collapseThree" class="card-body collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                <div class="row">
+                    <div class="column" *ngFor="let maindish of themenu; let i = index">
+                        <div class="card mb-2">
+                            <div class="card-header" [id]="'heading'+ i">
+                                <h5 class="card-title">{{maindish.title}} </h5>
+
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-subtitle text-muted">{{maindish.shortDesc}}</h6>
+                            </div>
+                            <div class="card-footer text-muted">
+                                {{maindish.price}} LE
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingFour">
+                <h5 class="mb-0">
+                    <a (click)="getsub('Sandwich')" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            Sandwiches
+                    </a>
+                </h5>
+            </div>
+            <div id="collapseFour" class="card-body collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                <div class="row">
+                    <div class="column" *ngFor="let sandwich of themenu; let i = index">
+                        <div class="card mb-2">
+                            <div class="card-header" [id]="'heading'+ i">
+                                <h5 class="card-title">{{sandwich.title}} </h5>
+
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-subtitle text-muted">{{sandwich.shortDesc}}</h6>
+                            </div>
+                            <div class="card-footer text-muted">
+                                {{sandwich.price}} LE
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingFive">
+                <h5 class="mb-0">
+                    <a (click)="getsub('SideDish')" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+            Side Dish
+                    </a>
+                </h5>
+            </div>
+            <div id="collapseFive" class="card-body collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                <div class="row">
+                    <div class="column" *ngFor="let sidedish of themenu; let i = index">
+                        <div class="card mb-2">
+                            <div class="card-body">
+                                <h5 class="card-title">{{sidedish.title}} </h5>
+                                <h6 class="card-subtitle text-muted">{{sidedish.shortDesc}}</h6>
+                            </div>
+                            <div class="card-footer text-muted">
+                                {{sidedish.price}} LE
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingSix">
+                <h5 class="mb-0">
+                    <a (click)="getsub('Drinks')" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+            Drinks
+                    </a>
+                </h5>
+            </div>
+            <div id="collapseSix" class="card-body collapse" aria-labelledby="headingSix" data-parent="#accordion">
+                <div class="row">
+                    <div class="column" *ngFor="let drink of themenu; let i = index">
+                        <div class="card mb-2">
+                            <div class="card-body">
+                                <h5 class="card-title">{{drink.title}} </h5>
+                                <h6 class="card-subtitle text-muted">{{drink.shortDesc}}</h6>
+                            </div>
+                            <div class="card-footer text-muted">
+                                {{drink.price}} LE
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

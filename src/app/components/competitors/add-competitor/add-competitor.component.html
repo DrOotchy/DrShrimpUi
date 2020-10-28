@@ -1,0 +1,21 @@
+<form #comeptitorform="ngForm">
+    <div class="form-row">
+        <input [(ngModel)]="competitors.name" name="name" type="text" class="form-control" placeholder="Name">
+    </div>
+    <br/>
+    <div class="form-row ">
+        <input [(ngModel)]="competitors.area" name="area" type="text" class="form-control" placeholder="Area">
+    </div>
+    <br/>
+    <div class="form-row ">
+        <input [(ngModel)]="competitors.url" name="url" type="text" class="form-control" placeholder="URL">
+    </div>
+    <br/>
+    <div class="form-row ">
+        <textarea [(ngModel)]="competitors.description" name="description" type="textarea" rows="3" class="form-control" placeholder="Description"> </textarea>
+    </div>
+    <br/>
+    <div class="form-row ">
+        <button (click)="addCompetitor(comeptitorform.value)" type="button" class="btn btn-secondary">Add Competitor</button>
+    </div>
+</form>
