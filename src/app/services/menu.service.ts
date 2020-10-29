@@ -15,4 +15,10 @@ export class MenuService {
   getSubMenu(sub): Observable<any[]> {
     return this.http.get<any[]>(`api/menu/sub/` + sub);
   }
+  getCategories(): Observable<any[]> {
+    return this.http.get<any[]>('api/menu/sections')
+  }
+  getMenuItems(_id): Observable<any[]> {
+    return this.http.get<any[]>(`api/menu/bysection/` + _id)
+  }
 }

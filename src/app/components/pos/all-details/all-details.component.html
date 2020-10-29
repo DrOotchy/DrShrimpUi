@@ -28,12 +28,12 @@
           <td>{{ item.customerName}}</td>
           <td>{{ item.subTotal }}</td>
           <td>{{ item.discount }}</td>
-          <td>{{ item.vat }}% </td>
+          <td>{{ item.vat }} LE </td>
           <td>{{ item.netTotal }}</td>
           <td>{{ item.paid }}</td>
           <td>{{ item.due }}</td>
           <td>{{ item.paymentType }}</td>
-          <td>{{ item.orderDateTime }}</td>
+          <td>{{ item.orderDateTime | date:'shortDate' }}</td>
 
 
 

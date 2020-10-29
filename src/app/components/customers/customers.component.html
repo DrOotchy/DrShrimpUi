@@ -1,1 +1,43 @@
-<p>customers works!</p>
+<div class="jumbotron">
+
+    <div>
+        <button class="btn btn-secondary float-left" [routerLink]="['/orders']">Back</button>
+    </div>
+    <br />
+    <div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Customer Number</th>
+                    <th scope="col">Customer Name</th>
+                    <th scope="col">Main Number</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Alternate Number</th>
+                    <th scope="col">Orders</th>
+                    <th scope="col">Start Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of allCustomers; index as i">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ item.customerNumber }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.mainNumber }}</td>
+                    <td *ngFor="let adress of item.address; index as x">
+                        <tr>Address {{x + 1}}: </tr>
+                            <tr>Building No.: {{adress.buildingNo}}</tr>
+                            <tr>Street: {{ adress.street }}</tr>
+                            <tr>Floor: {{adress.floor}}</tr>
+                            <tr>Apartment: {{adress.apartmentNo}}</tr>
+                            <tr>Special Mark: {{adress.specialMark}}</tr>
+                            <tr>Area: {{adress.area}}</tr>
+                    </td>
+                    <td>{{ item.alternativeNumbers }}</td>
+                    <td>View Orders</td>
+                    <td>{{ item.startDate | date:'shortDate' }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -37,6 +37,7 @@ import { RecipeDetailsComponent } from './components/recipe/recipe-details/recip
 import { PosComponent } from './components/pos/pos.component';
 import { CustomersComponent } from './components/customers/customers.component';
 import { AllDetailsComponent } from './components/pos/all-details/all-details.component';
+import { NewCustomerComponent } from './components/customers/new-customer/new-customer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,7 +65,8 @@ import { AllDetailsComponent } from './components/pos/all-details/all-details.co
     RecipeDetailsComponent,
     PosComponent,
     CustomersComponent,
-    AllDetailsComponent
+    AllDetailsComponent,
+    NewCustomerComponent
   ],
   imports: [
     BrowserModule,

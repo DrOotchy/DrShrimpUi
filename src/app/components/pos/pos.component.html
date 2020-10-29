@@ -4,14 +4,46 @@
     <div class="row">
         <div class="column">
             <h1>Dr Shrimp POS</h1>
-            
+
             <button class="btn btn-secondary float-left" [routerLink]="['/allInvoicesDetails']">All Invoices</button>
+            <button class="btn btn-secondary float-left" [routerLink]="['/newCustomer']">New customer</button>
+
         </div>
 
     </div>
     <br />
     <div>
-        
+        <div class="row">
+            <div class="column side">
+                <h2>Categories</h2>
+                <br />
+                <ul *ngFor="let item of menuCategories; index as i">
+                    <li><button (click)="getMenuItems(item._id)">{{item.name}}</button></li>
+
+                </ul>
+            </div>
+
+            <div class="column middle">
+                <h2>Items</h2>
+
+                <div class="row" *ngFor="let menuItem of menuItems">
+                    <div class="card">
+                        <div class="card-header">
+                            {{menuItem.name}} -- {{menuItem.altName}} <span class="badge">{{menuItem.price}} LE.</span>
+                        </div>
+                        <div class="card-body">
+                            {{menuItem.description}}
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="column side">
+                <h2>Invoice</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
+            </div>
+        </div>
 
     </div>
 </div>
