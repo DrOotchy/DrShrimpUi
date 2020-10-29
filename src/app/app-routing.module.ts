@@ -10,6 +10,9 @@ import { AuthGuard } from './services/auth.guard';
 import { CompetitorDetailsComponent } from './components/competitors/competitor-details/competitor-details.component';
 import { HomeComponent } from './components/home/home.component';
 import { RecipeDetailsComponent } from './components/recipe/recipe-details/recipe-details.component';
+import { CustomersComponent } from "./components/customers/customers.component";
+import { PosComponent } from "./components/pos/pos.component";
+import { AllDetailsComponent } from './components/pos/all-details/all-details.component';
 
 const routes: Routes = [
   {
@@ -55,6 +58,18 @@ const routes: Routes = [
   {
     path: 'recipesdetails/:id',
     component: RecipeDetailsComponent,
+    canActivate: [AuthGuard]
+  },{
+    path: 'orders',
+    component: PosComponent,
+    canActivate: [AuthGuard]
+  },{
+    path: 'allInvoicesDetails',
+    component: AllDetailsComponent,
+    canActivate: [AuthGuard]
+  },{
+    path: 'customers',
+    component: CustomersComponent,
     canActivate: [AuthGuard]
   }
 ];

@@ -12,10 +12,11 @@ export class TheMenuComponent implements OnInit {
   constructor(private menuServices: MenuService) { }
 
   ngOnInit(): void {
-    this.getsub('soup');
+    this.getTheMenu();
+    console.log(this.themenu)
   }
   getTheMenu(){
-    this.menuServices.getMenu()
+    return this.menuServices.getMenu()
     .subscribe(data => this.themenu = data);
   }
   getsub(sub){

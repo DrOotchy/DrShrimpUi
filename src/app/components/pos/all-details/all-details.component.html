@@ -1,0 +1,44 @@
+<div class="jumbotron">
+
+<div>
+    <button class="btn btn-secondary float-left" [routerLink]="['/orders']">Back</button>
+</div>
+    <br/>
+<div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Invoice Number</th>
+          <th scope="col">customer</th>
+          <th scope="col">subtotal</th>
+          <th scope="col">Discount</th>
+          <th scope="col">vat</th>
+          <th scope="col">net Total</th>
+          <th scope="col">Paid</th>
+          <th scope="col">Due</th>
+          <th scope="col">Payment Type</th>
+          <th scope="col">Date-Time</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of allinvoices; index as i">
+          <td>{{ i + 1 }}</td>
+          <td>{{ item.invoiceNumber}}</td>
+          <td>{{ item.customerName}}</td>
+          <td>{{ item.subTotal }}</td>
+          <td>{{ item.discount }}</td>
+          <td>{{ item.vat }}% </td>
+          <td>{{ item.netTotal }}</td>
+          <td>{{ item.paid }}</td>
+          <td>{{ item.due }}</td>
+          <td>{{ item.paymentType }}</td>
+          <td>{{ item.orderDateTime }}</td>
+
+
+
+        </tr>
+        </tbody>
+      </table>
+</div>
+</div>

@@ -34,6 +34,9 @@ import { SingleimageComponent } from './components/images/singleimage/singleimag
 import { MultiimageComponent } from './components/images/multiimage/multiimage.component';
 import { AddrecipeComponent } from './components/recipe/addrecipe/addrecipe.component';
 import { RecipeDetailsComponent } from './components/recipe/recipe-details/recipe-details.component';
+import { PosComponent } from './components/pos/pos.component';
+import { CustomersComponent } from './components/customers/customers.component';
+import { AllDetailsComponent } from './components/pos/all-details/all-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,7 +61,10 @@ import { RecipeDetailsComponent } from './components/recipe/recipe-details/recip
     SingleimageComponent,
     MultiimageComponent,
     AddrecipeComponent,
-    RecipeDetailsComponent
+    RecipeDetailsComponent,
+    PosComponent,
+    CustomersComponent,
+    AllDetailsComponent
   ],
   imports: [
     BrowserModule,

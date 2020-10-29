@@ -9,10 +9,10 @@ import { Observable } from 'rxjs';
 export class MenuService {
 
   constructor(private http: HttpClient) { }
-  getMenu(): Observable<IMenu[]> {
-    return this.http.get<IMenu[]>('api/menu/all');
+  getMenu(): Observable<any[]> {
+    return this.http.get<any[]>('api/menu/all');
   }
-  getSubMenu(sub): Observable<IMenu[]> {
-    return this.http.get<IMenu[]>(`api/menu/sub/` + sub);
+  getSubMenu(sub): Observable<any[]> {
+    return this.http.get<any[]>(`api/menu/sub/` + sub);
   }
 }

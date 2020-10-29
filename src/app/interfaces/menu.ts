@@ -1,8 +1,12 @@
 export interface IMenu {
-    title: string;
+    id: string;
+    name: string;
+    altName: string;
     description: string;
-    shortDesc: string;
+    altDesc: string;
     price: number;
     availability: boolean;
     menuSection: string;
+    recipe: string;
+    isMenu: boolean;
 }
