@@ -15,8 +15,6 @@
     <div>
         <div class="row">
             <div class="column side">
-                <h2>Categories</h2>
-                <br />
                 <ul *ngFor="let item of menuCategories; index as i">
                     <li><button (click)="getMenuItems(item._id)">{{item.name}}</button></li>
 
@@ -24,17 +22,25 @@
             </div>
 
             <div class="column middle">
-                <h2>Items</h2>
-
-                <div class="row" *ngFor="let menuItem of menuItems">
-                    <div class="card">
-                        <div class="card-header">
-                            {{menuItem.name}} -- {{menuItem.altName}} <span class="badge">{{menuItem.price}} LE.</span>
+                <div class="card-deck no-gutters">
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-3" *ngFor="let menuItem of menuItems">
+                        <div class="card h-100 mb-4">
+                            <div class="card-header">
+                                <h5 class="card-title m-0 p-0 font-weight-bolder text-secondary"> {{menuItem.name}} --
+                                    {{menuItem.altName}}</h5>
+                            </div>
+                            <div class="card-body text-left">
+                                <p class="card-text">{{menuItem.altName}}</p>
+                                <p class="card-text">{{menuItem.description}}</p>
+                                <p class="card-text">{{menuItem.altDesc}}</p>
+                                <span class="font-lead-base font-weight-bold text-muted">{{menuItem.price}} LE.</span>
+                                <div class="promotion-price">
+                                    <div class="promotion-price-desc">Now</div>
+                                    <div class="promotion-price-text">$ 9.5</div>
+                                </div>
+                            </div>
+                            <a href="#" class="card-footer btn btn-warning">Order</a>
                         </div>
-                        <div class="card-body">
-                            {{menuItem.description}}
-                        </div>
-                        
                     </div>
                 </div>
             </div>

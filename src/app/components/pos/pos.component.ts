@@ -14,6 +14,7 @@ export class PosComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMenuCategories()
+    this.getMenuItems(this.menuCategories[0]._id)
   }
 getMenuCategories(){
   return this.menuService.getCategories()

@@ -1,7 +1,8 @@
 <div class="jumbotron">
 
     <div>
-        <button class="btn btn-secondary float-left" [routerLink]="['/orders']">Back</button>
+        
+        <button class="btn btn-secondary float-left" [routerLink]="['/orders']">search</button>
     </div>
     <br />
     <div>
@@ -25,13 +26,13 @@
                     <td>{{ item.name }}</td>
                     <td>{{ item.mainNumber }}</td>
                     <td *ngFor="let adress of item.address; index as x">
-                        <tr>Address {{x + 1}}: </tr>
-                            <tr>Building No.: {{adress.buildingNo}}</tr>
-                            <tr>Street: {{ adress.street }}</tr>
-                            <tr>Floor: {{adress.floor}}</tr>
-                            <tr>Apartment: {{adress.apartmentNo}}</tr>
-                            <tr>Special Mark: {{adress.specialMark}}</tr>
-                            <tr>Area: {{adress.area}}</tr>
+                        Address {{x + 1}}: 
+                            <br>Building No.: {{adress.buildingNo}}
+                            <br>Street: {{ adress.street }}
+                            <br>Floor: {{adress.floor}}
+                            <br>Apartment: {{adress.apartmentNo}}
+                            <br>Special Mark: {{adress.specialMark}}
+                            <br>Area: {{adress.area}}
                     </td>
                     <td>{{ item.alternativeNumbers }}</td>
                     <td>View Orders</td>
