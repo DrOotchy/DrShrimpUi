@@ -11,6 +11,7 @@ import { CompetitorDetailsComponent } from './components/competitors/competitor-
 import { HomeComponent } from './components/home/home.component';
 import { RecipeDetailsComponent } from './components/recipe/recipe-details/recipe-details.component';
 import { CustomersComponent } from "./components/customers/customers.component";
+import { NewCustomerComponent } from "./components/customers/new-customer/new-customer.component";
 import { PosComponent } from "./components/pos/pos.component";
 import { AllDetailsComponent } from './components/pos/all-details/all-details.component';
 
@@ -59,17 +60,22 @@ const routes: Routes = [
     path: 'recipesdetails/:id',
     component: RecipeDetailsComponent,
     canActivate: [AuthGuard]
-  },{
+  }, {
     path: 'orders',
     component: PosComponent,
     canActivate: [AuthGuard]
-  },{
+  }, {
     path: 'allInvoicesDetails',
     component: AllDetailsComponent,
     canActivate: [AuthGuard]
-  },{
+  }, {
     path: 'customers',
     component: CustomersComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'newcustomer',
+    component: NewCustomerComponent,
     canActivate: [AuthGuard]
   }
 ];
