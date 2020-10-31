@@ -1,36 +1,28 @@
 <div class="jumbotron">
-
-
     <div class="row">
         <div class="column">
-            <h1>Dr Shrimp POS</h1>
-
             <button class="btn btn-secondary float-left" [routerLink]="['/allInvoicesDetails']">All Invoices</button>
             <button class="btn btn-secondary float-left" [routerLink]="['/newcustomer']">New customer</button>
-
         </div>
-
     </div>
     <br />
     <div>
         <div class="row">
             <div class="column side">
                 <ul *ngFor="let item of menuCategories; index as i">
-                    <li><button (click)="getMenuItems(item._id)">{{item.name}}</button></li>
-
+                    <li><button (click)="getMenuItems(item.name)">{{item.name}}</button></li>
                 </ul>
             </div>
 
             <div class="column middle">
                 <div class="card-deck no-gutters">
                     <div class="col-12 col-sm-6 col-md-6 col-lg-3" *ngFor="let menuItem of menuItems">
-                        <div class="card h-100 mb-4">
+                        <div class="card h-60 mb-4">
                             <div class="card-header">
-                                <h5 class="card-title m-0 p-0 font-weight-bolder text-secondary"> {{menuItem.name}} --
-                                    {{menuItem.altName}}</h5>
+                                <h5 class="card-title m-0 p-0 font-weight-bolder text-secondary"> {{menuItem.name}}
+                                </h5>
                             </div>
                             <div class="card-body text-left">
-                                <p class="card-text">{{menuItem.altName}}</p>
                                 <p class="card-text">{{menuItem.description}}</p>
                                 <p class="card-text">{{menuItem.altDesc}}</p>
                                 <span class="font-lead-base font-weight-bold text-muted">{{menuItem.price}} LE.</span>
@@ -39,7 +31,7 @@
                                     <div class="promotion-price-text">$ 9.5</div>
                                 </div>
                             </div>
-                            <a href="#" class="card-footer btn btn-warning">Order</a>
+                            <button (click)="addToInvoice(menuItem)" class="card-footer btn btn-warning">Order</button>
                         </div>
                     </div>
                 </div>
@@ -47,7 +39,28 @@
 
             <div class="column side">
                 <h2>Invoice</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+
+                            <th scope="col">Qtty</th>
+                            <th scope="col">Item</th>
+                            <th scope="col">special request</th>
+                            <th scope="col">Price</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of invoicetemp; index as i">
+
+                            <td>{{ item.altName}}</td>
+                            <td>{{ item.name}}</td>
+                            <td>{{ item.altDesc }}</td>
+                            <td>{{ item.price }}</td>
+
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 

@@ -1,8 +1,8 @@
 <div class="jumbotron">
 
     <div>
-        
-        <button class="btn btn-secondary float-left" [routerLink]="['/orders']">search</button>
+        <input type="text" (keypress)="search(msg)" [(ngModel)]="msg" placeholder="Search Phone">
+        <input type="text" (keypress)="searchName(name)" [(ngModel)]="name" placeholder="Search Name">
     </div>
     <br />
     <div>
@@ -26,13 +26,13 @@
                     <td>{{ item.name }}</td>
                     <td>{{ item.mainNumber }}</td>
                     <td *ngFor="let adress of item.address; index as x">
-                        Address {{x + 1}}: 
-                            <br>Building No.: {{adress.buildingNo}}
-                            <br>Street: {{ adress.street }}
-                            <br>Floor: {{adress.floor}}
-                            <br>Apartment: {{adress.apartmentNo}}
-                            <br>Special Mark: {{adress.specialMark}}
-                            <br>Area: {{adress.area}}
+                        Address {{x + 1}}:
+                        <br>Building No.: {{adress.buildingNo}}
+                        <br>Street: {{ adress.street }}
+                        <br>Floor: {{adress.floor}}
+                        <br>Apartment: {{adress.apartmentNo}}
+                        <br>Special Mark: {{adress.specialMark}}
+                        <br>Area: {{adress.area}}
                     </td>
                     <td>{{ item.alternativeNumbers }}</td>
                     <td>View Orders</td>

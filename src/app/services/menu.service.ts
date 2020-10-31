@@ -19,6 +19,9 @@ export class MenuService {
     return this.http.get<any[]>('api/menu/sections')
   }
   getMenuItems(_id): Observable<any[]> {
-    return this.http.get<any[]>(`api/menu/bysection/` + _id)
+    return this.http.get<any[]>(`api/menu/bysection/` + _id);
+  }
+  getPOSview(): Observable<any[]> {
+    return this.http.get<any[]>(`api/menu/POSview`);
   }
 }

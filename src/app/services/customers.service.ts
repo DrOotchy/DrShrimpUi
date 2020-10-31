@@ -13,6 +13,12 @@ export class CustomersService {
   getCustomerID(_id): Observable<any[]> {
     return this.http.get<any[]>(`api/customer/` + _id);
   }
+  searchPhone(phone): Observable<any[]> {
+    return this.http.post<any[]>(`api/customer/find` , phone);
+  }
+  searchName(name): Observable<any[]> {
+    return this.http.post<any[]>(`api/customer/name` , name);
+  }
   newCustomer(data): Observable<any> {
     return this.http.post<any>(`api/customer/new`, data);
   }
