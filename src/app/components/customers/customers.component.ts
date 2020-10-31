@@ -7,8 +7,8 @@ import { CustomersService } from '../../services/customers.service';
   styleUrls: ['./customers.component.css']
 })
 export class CustomersComponent implements OnInit {
-  public msg = '';
-  public name = '';
+public name;
+public msg;
   public allCustomers = [];
   constructor(private customerService: CustomersService) { }
 
@@ -20,11 +20,10 @@ export class CustomersComponent implements OnInit {
     .subscribe(data => this.allCustomers = data)
   }
   search(msg){
-    return this.customerService.searchPhone(msg)
-    .subscribe(data => this.allCustomers = data)
+    return this.allCustomers.filter(customer => customer.mainNumber === msg)
   }
-  searchName(msg){
-    return this.customerService.searchName(msg)
-    .subscribe(data => this.allCustomers = data)
+  searchName(name){
+    return this.allCustomers.filter(customer=> customer.name === name )
+    
   }
 }

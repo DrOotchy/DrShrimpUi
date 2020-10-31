@@ -1,8 +1,9 @@
 <div class="jumbotron">
 
-    <div>
-        <input type="text" (keypress)="search(msg)" [(ngModel)]="msg" placeholder="Search Phone">
-        <input type="text" (keypress)="searchName(name)" [(ngModel)]="name" placeholder="Search Name">
+    <div class="column">
+        <button class="btn btn-secondary float-left" [routerLink]="['/newcustomer']">New customer</button>
+        
+        <input type="text" (keypress)="search(msg)" placeholder="Search Phone">
     </div>
     <br />
     <div>

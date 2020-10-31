@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { CustomersService } from '../../../services/customers.service';
 
@@ -9,28 +9,30 @@ import { CustomersService } from '../../../services/customers.service';
   styleUrls: ['./new-customer.component.css']
 })
 export class NewCustomerComponent implements OnInit {
+
   userForm;
+
   constructor(private formBuilder: FormBuilder, private customerService: CustomersService) { }
 
   ngOnInit(): void {
-    this.userForm = this.formBuilder.group({
-      name: [''],
-      mainNumber: [''],
-      alternativeNumbers:[''],
-      buildingNo: [''],
-      street: [''],
-      floor: [''],
-      apartmentNo: [''],
-      specialMark: [''],
-      area:[''],
-      district:['']
-    });
+    this.userForm = new FormGroup({
+      name: new FormControl(''),
+      mainNumber: new FormControl(''),
+      alternativeNumbers: new FormControl(''),
+      address: new FormGroup({
+        buildingNo: new FormControl(''),
+        street: new FormControl(''),
+        floor: new FormControl(''),
+        apartmentNo: new FormControl(''),
+        specialMark: new FormControl(''),
+        area: new FormControl(''),
+        district: new FormControl('')
+      })
+    })
+}
 
-
+  onSubmit() {
+    return this.customerService.newCustomer(this.userForm.value)
+      .subscribe(data => alert(data.name + 'Added Successfully' ))
   }
-
-    onSubmit(){
-      return this.customerService.newCustomer(this.userForm.value)
-      .subscribe(data => console.log('response', data))
-    }
 }
