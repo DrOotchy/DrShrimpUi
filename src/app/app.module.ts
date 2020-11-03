@@ -38,6 +38,9 @@ import { PosComponent } from './components/pos/pos.component';
 import { CustomersComponent } from './components/customers/customers.component';
 import { AllDetailsComponent } from './components/pos/all-details/all-details.component';
 import { NewCustomerComponent } from './components/customers/new-customer/new-customer.component';
+import { InventoryComponent } from './components/inventory/inventory.component';
+import { NewInventoryComponent } from './components/inventory/new-inventory/new-inventory.component';
+import { ListInventoryComponent } from './components/inventory/list-inventory/list-inventory.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,7 +69,10 @@ import { NewCustomerComponent } from './components/customers/new-customer/new-cu
     PosComponent,
     CustomersComponent,
     AllDetailsComponent,
-    NewCustomerComponent
+    NewCustomerComponent,
+    InventoryComponent,
+    NewInventoryComponent,
+    ListInventoryComponent
   ],
   imports: [
     BrowserModule,

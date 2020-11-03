@@ -12,7 +12,6 @@
                     <br>
                 </ul>
             </div>
-
             <div class="column middle">
                 <div class="card-deck no-gutters">
                     <div class="col-12 col-sm-6 col-md-6 col-lg-3" *ngFor="let menuItem of menuItems">
@@ -24,7 +23,7 @@
                             <div class="card-body text-left">
                                 <p class="card-text">{{menuItem.description}}</p>
                                 <p class="card-text">{{menuItem.altDesc}}</p>
-                                <textarea name="" id="" cols="25" rows="5" placeholder="Special Request"></textarea>
+                                <textarea name="special" id="special" cols="25" rows="5" placeholder="Special Request" ></textarea>
 
                             </div>
                             <button (click)="addToInvoice(menuItem)" class="card-footer btn btn-warning"><span class="font-lead-base font-weight-bold text-muted">{{menuItem.price}} LE.</span></button>
@@ -32,13 +31,11 @@
                     </div>
                 </div>
             </div>
-
             <div class="column side">
                 <h2>Invoice</h2>
                 <table class="table table-striped">
                     <thead>
                         <tr>
-
                             <th scope="col">Item</th>
                             <th scope="col">special request</th>
                             <th scope="col">Price</th>

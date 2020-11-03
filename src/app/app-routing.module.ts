@@ -14,7 +14,9 @@ import { CustomersComponent } from "./components/customers/customers.component";
 import { NewCustomerComponent } from "./components/customers/new-customer/new-customer.component";
 import { PosComponent } from "./components/pos/pos.component";
 import { AllDetailsComponent } from './components/pos/all-details/all-details.component';
-
+import { InventoryComponent } from "./components/inventory/inventory.component";
+import { NewInventoryComponent } from "./components/inventory/new-inventory/new-inventory.component";
+import { ListInventoryComponent } from "./components/inventory/list-inventory/list-inventory.component";
 const routes: Routes = [
   {
     path: 'login',
@@ -76,6 +78,21 @@ const routes: Routes = [
   {
     path: 'newcustomer',
     component: NewCustomerComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'inventory',
+    component: InventoryComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'newInventoryItem',
+    component: NewInventoryComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'listInventory',
+    component: ListInventoryComponent,
     canActivate: [AuthGuard]
   }
 ];

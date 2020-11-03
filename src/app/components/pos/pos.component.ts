@@ -11,7 +11,17 @@ export class PosComponent implements OnInit {
   public posView;
   public menuCategories = [];
   public menuItems = [];
-  public invoicetemp = []
+  public invoicetemp = [];
+  public tot ;
+  public invoiceItem ={
+    _id: '',
+    name: '',
+    specialrequst: '',
+    quantity: Number,
+    price: Number,
+    itemTotal: Number
+
+  }
   constructor(private posServices: PosService, private menuService: MenuService) { }
 
   ngOnInit(): void {
@@ -55,8 +65,15 @@ export class PosComponent implements OnInit {
       this.menuItems = this.posView.Soup;
     }
   }
-  addToInvoice(item){
-    this.invoicetemp.push(item);
+  addToInvoice(item, qtty, special){
+    this.invoiceItem._id = item._id;
+    this.invoiceItem.name = item.name;
+    this.invoiceItem.quantity = qtty;
+    this.invoiceItem.specialrequst = special;
+    this.invoiceItem.price = item.price;
+    this.tot = item.price * qtty;
+    this.invoiceItem.itemTotal = this.tot;
+    this.invoicetemp.push(this.invoiceItem);
   }
   payInvoice(){
 console.log(this.invoicetemp)
