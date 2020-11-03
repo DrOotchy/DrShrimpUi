@@ -1,16 +1,15 @@
 <div class="jumbotron">
     <div class="row">
-        <div class="column">
-            <button class="btn btn-secondary float-left" [routerLink]="['/allInvoicesDetails']">All Invoices</button>
-            <button class="btn btn-secondary float-left" [routerLink]="['/newcustomer']">New customer</button>
-        </div>
+        <button class="btn btn-secondary float-left" [routerLink]="['/allInvoicesDetails']">All Invoices</button>
+        <button class="btn btn-secondary float-left" [routerLink]="['/newcustomer']">New customer</button>
     </div>
     <br />
     <div>
         <div class="row">
             <div class="column side">
-                <ul *ngFor="let item of menuCategories; index as i">
-                    <li><button (click)="getMenuItems(item.name)">{{item.name}}</button></li>
+                <ul class="list-group" *ngFor="let item of menuCategories; index as i">
+                    <button class="block list-group-item" (click)="getMenuItems(item.name)">{{item.name}}</button>
+                    <br>
                 </ul>
             </div>
 
@@ -25,13 +24,10 @@
                             <div class="card-body text-left">
                                 <p class="card-text">{{menuItem.description}}</p>
                                 <p class="card-text">{{menuItem.altDesc}}</p>
-                                <span class="font-lead-base font-weight-bold text-muted">{{menuItem.price}} LE.</span>
-                                <div class="promotion-price">
-                                    <div class="promotion-price-desc">Now</div>
-                                    <div class="promotion-price-text">$ 9.5</div>
-                                </div>
+                                <textarea name="" id="" cols="25" rows="5" placeholder="Special Request"></textarea>
+
                             </div>
-                            <button (click)="addToInvoice(menuItem)" class="card-footer btn btn-warning">Order</button>
+                            <button (click)="addToInvoice(menuItem)" class="card-footer btn btn-warning"><span class="font-lead-base font-weight-bold text-muted">{{menuItem.price}} LE.</span></button>
                         </div>
                     </div>
                 </div>
@@ -43,24 +39,25 @@
                     <thead>
                         <tr>
 
-                            <th scope="col">Qtty</th>
                             <th scope="col">Item</th>
                             <th scope="col">special request</th>
                             <th scope="col">Price</th>
-
+                            <th scope="col">Qtty</th>
+                            <th scope="col">Total</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let item of invoicetemp; index as i">
 
-                            <td>{{ item.altName}}</td>
-                            <td>{{ item.name}}</td>
-                            <td>{{ item.altDesc }}</td>
+                            <td>{{ item.name }}</td>
+                            <td>{{ item.specialrequest }}</td>
                             <td>{{ item.price }}</td>
-
+                            <td>{{ item.quantity }}</td>
+                            <td>{{ item.itemTotal }}</td>
                         </tr>
                     </tbody>
                 </table>
+                <button (click)="payInvoice()" class="card-footer btn btn-warning">Order</button>
             </div>
         </div>
 

@@ -27,6 +27,17 @@
     align-items: flex-start;
 }
 
+.block {
+    display: block;
+    width: 80%;
+    border: none;
+    background-color: #c5e3e7;
+    padding: 14px 28px;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: left;
+}
+
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
 

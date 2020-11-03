@@ -56,7 +56,9 @@ export class PosComponent implements OnInit {
     }
   }
   addToInvoice(item){
-    this.invoicetemp.push(item)
+    this.invoicetemp.push(item);
   }
-
+  payInvoice(){
+console.log(this.invoicetemp)
+  }
 }
