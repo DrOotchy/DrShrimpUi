@@ -1,1 +1,20 @@
-<p>new-inventory works!</p>
+<form [formGroup]="itemForm" (ngSubmit)="onSubmit()" class="text-center border border-light p-5">
+
+    <p class="h4 mb-4">New Inventory Item</p>
+
+    <div class="form-row mb-4">
+        <div class="col">
+            <input type="text" formControlName="name" id="defaultRegisterFormName" class="form-control" placeholder="Name">
+            <input type="text" formControlName="altName" id="defaultRegisterFormAltName" class="form-control" placeholder="Alt Name">
+            <input type="text" formControlName="group" id="defaultRegisterFormgroup" class="form-control" placeholder="Group">
+
+        </div>
+    </div>
+
+
+    <button class="btn btn-info my-4 btn-block" type="submit">Add New Category</button>
+    <button class="btn btn-info my-4 btn-block" [routerLink]="['/inventory']">Cancel</button>
+
+    <hr>
+
+</form>

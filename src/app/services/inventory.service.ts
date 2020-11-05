@@ -16,5 +16,10 @@ export class InventoryService {
   addNewItem(data): Observable<any> {
     return this.http.post(`api/inventory/newitem`, data);
   }
-
+  getInventCategories(): Observable<any>{
+    return this.http.get<any[]>(`api/inventory/item/categories`)
+  }
+  newInventCategories(data): Observable<any> {
+    return this.http.post(`api/inventory/item/categories/newCategory`, data);
+  }
 }
