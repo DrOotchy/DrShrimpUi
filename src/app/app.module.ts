@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { TableFilterPipe } from './table-filter.pipe';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -41,9 +42,11 @@ import { NewCustomerComponent } from './components/customers/new-customer/new-cu
 import { InventoryComponent } from './components/inventory/inventory.component';
 import { NewInventoryComponent } from './components/inventory/new-inventory/new-inventory.component';
 import { ListInventoryComponent } from './components/inventory/list-inventory/list-inventory.component';
+import { CustomerDetailsComponent } from './components/customers/customer-details/customer-details.component';
 @NgModule({
   declarations: [
     AppComponent,
+    TableFilterPipe,
     LoginComponent,
     DashboardComponent,
     SuppliersComponent,
@@ -72,7 +75,8 @@ import { ListInventoryComponent } from './components/inventory/list-inventory/li
     NewCustomerComponent,
     InventoryComponent,
     NewInventoryComponent,
-    ListInventoryComponent
+    ListInventoryComponent,
+    CustomerDetailsComponent
   ],
   imports: [
     BrowserModule,

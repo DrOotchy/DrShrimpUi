@@ -1,9 +1,24 @@
 <div class="jumbotron">
 
-    <div class="column">
-        <button class="btn btn-secondary float-left" [routerLink]="['/newcustomer']">New customer</button>
-        
-        <input type="text" (keypress)="search(msg)" placeholder="Search Phone">
+    <div class="row">
+        <button class="btn btn-primary border border-light p-5" [routerLink]="['/newcustomer']">New customer</button>
+        <form [formGroup]="searchForm" (ngSubmit)="searchName()" class="text-center border border-light p-5">
+            <div class="form-group">
+                <input type="text" formControlName="mainNumber" id="defaultRegisterFormMainNumber" class="form-control" placeholder="Pone">
+                <button class="btn btn-info my-4 btn-block" type="submit">search</button>
+            </div>
+        </form>
+        <div>
+            <table class="table table-striped">
+                <tr *ngFor="let item of searchCustomers ; index as i">
+                    <button class="btn btn-secondary float-left" [routerLink]="['/customer', item._id]">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ item.mainNumber }}</td>
+                    <td>{{ item.name }}</td>
+                </button>
+                </tr>
+            </table>
+        </div>
     </div>
     <br />
     <div>
@@ -14,29 +29,19 @@
                     <th scope="col">Customer Number</th>
                     <th scope="col">Customer Name</th>
                     <th scope="col">Main Number</th>
-                    <th scope="col">Address</th>
                     <th scope="col">Alternate Number</th>
-                    <th scope="col">Orders</th>
+                    <th scope="col">Details</th>
                     <th scope="col">Start Date</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of allCustomers; index as i">
+                <tr *ngFor="let item of allCustomers ; index as i">
                     <td>{{ i + 1 }}</td>
                     <td>{{ item.customerNumber }}</td>
                     <td>{{ item.name }}</td>
                     <td>{{ item.mainNumber }}</td>
-                    <td *ngFor="let adress of item.address; index as x">
-                        Address {{x + 1}}:
-                        <br>Building No.: {{adress.buildingNo}}
-                        <br>Street: {{ adress.street }}
-                        <br>Floor: {{adress.floor}}
-                        <br>Apartment: {{adress.apartmentNo}}
-                        <br>Special Mark: {{adress.specialMark}}
-                        <br>Area: {{adress.area}}
-                    </td>
                     <td>{{ item.alternativeNumbers }}</td>
-                    <td>View Orders</td>
+                    <td><button class="btn btn-secondary float-left" [routerLink]="['/customer', item._id]">View Details</button></td>
                     <td>{{ item.startDate | date:'shortDate' }}</td>
                 </tr>
             </tbody>
