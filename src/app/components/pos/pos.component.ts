@@ -17,9 +17,9 @@ export class PosComponent implements OnInit {
     _id: '',
     name: '',
     specialrequst: '',
-    quantity: Number,
-    price: Number,
-    itemTotal: Number
+    quantity: 1,
+    price: '',
+    itemTotal: 0
 
   }
   constructor(private posServices: PosService, private menuService: MenuService) { }
@@ -65,14 +65,10 @@ export class PosComponent implements OnInit {
       this.menuItems = this.posView.Soup;
     }
   }
-  addToInvoice(item, qtty, special){
+  addToInvoice(item){
     this.invoiceItem._id = item._id;
     this.invoiceItem.name = item.name;
-    this.invoiceItem.quantity = qtty;
-    this.invoiceItem.specialrequst = special;
     this.invoiceItem.price = item.price;
-    this.tot = item.price * qtty;
-    this.invoiceItem.itemTotal = this.tot;
     this.invoicetemp.push(this.invoiceItem);
   }
   payInvoice(){

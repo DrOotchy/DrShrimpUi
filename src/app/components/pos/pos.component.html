@@ -23,8 +23,6 @@
                             <div class="card-body text-left">
                                 <p class="card-text">{{menuItem.description}}</p>
                                 <p class="card-text">{{menuItem.altDesc}}</p>
-                                <textarea name="special" id="special" cols="25" rows="5" placeholder="Special Request" ></textarea>
-
                             </div>
                             <button (click)="addToInvoice(menuItem)" class="card-footer btn btn-warning"><span class="font-lead-base font-weight-bold text-muted">{{menuItem.price}} LE.</span></button>
                         </div>
@@ -45,12 +43,11 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let item of invoicetemp; index as i">
-
                             <td>{{ item.name }}</td>
                             <td>{{ item.specialrequest }}</td>
                             <td>{{ item.price }}</td>
-                            <td>{{ item.quantity }}</td>
-                            <td>{{ item.itemTotal }}</td>
+                            <td><input type="text" placeholder="{{ item.quantity }}"> </td>
+                            <td>{{ item.price * item.quantity }}</td>
                         </tr>
                     </tbody>
                 </table>

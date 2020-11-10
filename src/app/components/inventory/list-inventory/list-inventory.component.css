@@ -1,0 +1,39 @@
+/* Create three unequal columns that floats next to each other */
+
+.column {
+    float: left;
+    padding: 10px;
+}
+
+
+/* Left and right column */
+
+.column.side {
+    width: 20%;
+}
+
+
+/* Middle column */
+
+.column.middle {
+    width: 55%;
+}
+
+
+/* Clear floats after the columns */
+
+.row {
+    align-content: flex-start;
+    align-items: flex-start;
+}
+
+.block {
+    display: block;
+    width: 80%;
+    border: none;
+    background-color: #c5e3e7;
+    padding: 14px 28px;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: left;
+}

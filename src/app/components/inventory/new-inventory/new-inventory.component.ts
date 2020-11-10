@@ -13,8 +13,8 @@ public itemForm;
   ngOnInit(): void {
     this.itemForm = new FormGroup({
       name: new FormControl(''),
-      mainNumber: new FormControl(''),
-      alternativeNumbers: new FormControl('')
+      altName: new FormControl(''),
+      category: new FormControl('')
     });
 }
 

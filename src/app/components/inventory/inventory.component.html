@@ -6,6 +6,20 @@
     <div>
         <div class="row">
             <div class="column side">
+                <div class="column">
+                    <button class="btn btn-secondary block list-group-item float-left"
+                        [routerLink]="['/listInventory/kitchen']">Kitchen</button>
+                    <button class="btn btn-secondary block list-group-item float-left"
+                        [routerLink]="['/listInventory/packing']">Packing</button>
+                    <button class="btn btn-secondary block list-group-item float-left"
+                        [routerLink]="['/listInventory/utensiles']">Utensiles</button>
+                    <button class="btn btn-secondary block list-group-item float-left"
+                        [routerLink]="['/listInventory/detergents']">Detergents</button>
+                    <button class="btn btn-secondary block list-group-item float-left"
+                        [routerLink]="['/listInventory/spices']">Spices</button>
+
+                </div>
+
             </div>
             <div class="column middle">
                 <table class="table table-striped">
@@ -14,7 +28,7 @@
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
                             <th scope="col">Unit</th>
-                            <th scope="col">Group</th>
+                            <th scope="col">Category</th>
                         </tr>
                     </thead>
                     <tbody>
