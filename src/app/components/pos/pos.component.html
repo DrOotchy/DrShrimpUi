@@ -46,8 +46,8 @@
                             <td>{{ item.name }}</td>
                             <td>{{ item.specialrequest }}</td>
                             <td>{{ item.price }}</td>
-                            <td><input type="text" placeholder="{{ item.quantity }}"> </td>
-                            <td>{{ item.price * item.quantity }}</td>
+                            <td><input type="number" id="quantity" name="quantity"> </td>
+                            <td>{{ item.price * quantity }}</td>
                         </tr>
                     </tbody>
                 </table>

@@ -17,9 +17,9 @@ export class PosComponent implements OnInit {
     _id: '',
     name: '',
     specialrequst: '',
-    quantity: 1,
+    quantity: '',
     price: '',
-    itemTotal: 0
+    itemTotal: ['']
 
   }
   constructor(private posServices: PosService, private menuService: MenuService) { }
