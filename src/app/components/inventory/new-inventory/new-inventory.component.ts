@@ -8,19 +8,22 @@ import { InventoryService } from '../../../services/inventory.service';
   styleUrls: ['./new-inventory.component.css']
 })
 export class NewInventoryComponent implements OnInit {
-public itemForm;
-  constructor(private formBuilder: FormBuilder,private inventoryService: InventoryService) { }
+  public itemForm;
+
+  constructor(private formBuilder: FormBuilder, private inventoryService: InventoryService) { }
   ngOnInit(): void {
     this.itemForm = new FormGroup({
       name: new FormControl(''),
       altName: new FormControl(''),
       category: new FormControl('')
     });
-}
+    
+
+  }
 
   onSubmit() {
     return this.inventoryService.newInventCategories(this.itemForm.value)
-      .subscribe(data => alert(data.name + 'Added Successfully' ));
+      .subscribe(data => alert(data.name + 'Added Successfully'));
   }
 
 }

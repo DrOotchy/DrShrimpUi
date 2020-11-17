@@ -1,6 +1,7 @@
 <div class="jumbotron">
     <div class="row">
         <button class="btn btn-secondary float-left" [routerLink]="['/listInventory']">List Items</button>
+        <button class="btn btn-secondary float-right" [routerLink]="['/inventoryIN']">ADD TO STOCK</button>
     </div>
     <br />
     <div>
@@ -29,6 +30,7 @@
                             <th scope="col">Name</th>
                             <th scope="col">Unit</th>
                             <th scope="col">Category</th>
+                            <th scope="col">ADD Stock</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -37,11 +39,14 @@
                             <td>{{inv.name}}</td>
                             <td>{{inv.unit}}</td>
                             <td>{{inv.category.name}}</td>
+                            <td><button class="btn btn-secondary" [routerLink]="['/inventoryIN', inv._id]">ADD STOCK</button></td>
                         </tr>
                 </table>
             </div>
             <div class="column side">
                 <app-new-inventory></app-new-inventory>
+                <br/>
+                <app-inv-in></app-inv-in>
             </div>
         </div>
     </div>

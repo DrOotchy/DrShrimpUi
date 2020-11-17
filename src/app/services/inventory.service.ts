@@ -20,6 +20,6 @@ export class InventoryService {
     return this.http.get<any[]>(`api/inventory/item/categories`)
   }
   newInventCategories(data): Observable<any> {
-    return this.http.post(`api/inventory/item/categories/newCategory`, data);
+    return this.http.post(`api/inventory/categories/newCategory`, data);
   }
 }

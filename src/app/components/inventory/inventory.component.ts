@@ -10,11 +10,11 @@ export class InventoryComponent implements OnInit {
   public allInvent = []
   constructor(private inventoryService: InventoryService) { }
 
-  ngOnInit(): void {
-    this.getALLCategories()
+  async ngOnInit(): Promise<any> {
+    await this.getALLCategories()
   }
-  getALLCategories(){
-    return this.inventoryService.getAllInventoryItems()
+  async getALLCategories(){
+    return await this.inventoryService.getAllInventoryItems()
     .subscribe(data => this.allInvent = data);
   }
 }

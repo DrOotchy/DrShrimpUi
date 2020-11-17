@@ -43,6 +43,8 @@ import { InventoryComponent } from './components/inventory/inventory.component';
 import { NewInventoryComponent } from './components/inventory/new-inventory/new-inventory.component';
 import { ListInventoryComponent } from './components/inventory/list-inventory/list-inventory.component';
 import { CustomerDetailsComponent } from './components/customers/customer-details/customer-details.component';
+import { InvINComponent } from './components/inventory/inv-in/inv-in.component';
+import { InvOUTComponent } from './components/inventory/inv-out/inv-out.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,7 +78,9 @@ import { CustomerDetailsComponent } from './components/customers/customer-detail
     InventoryComponent,
     NewInventoryComponent,
     ListInventoryComponent,
-    CustomerDetailsComponent
+    CustomerDetailsComponent,
+    InvINComponent,
+    InvOUTComponent
   ],
   imports: [
     BrowserModule,
