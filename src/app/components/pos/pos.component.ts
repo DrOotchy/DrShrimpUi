@@ -18,6 +18,8 @@ export class PosComponent implements OnInit {
     _id: '',
     name: '',
     price: '',
+    quantity: '',
+    specialRrequest:'',
     itemTotal: ['']
   };
   public invoiceAddItems: FormGroup;
@@ -65,10 +67,11 @@ export class PosComponent implements OnInit {
     }
   }
   addToInvoice(item) {
+    console.log(item)
     this.invoiceItem._id = item._id;
     this.invoiceItem.name = item.name;
     this.invoiceItem.price = item.price;
-    console.log(this.invoiceAddItems.value)
+    this.invoiceItem.quantity = item.quantity
     this.invoicetemp.push(this.invoiceItem);
   }
   payInvoice() {
