@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PosService } from '../../services/pos.service';
 import { MenuService } from '../../services/menu.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-pos',
   templateUrl: './pos.component.html',
@@ -12,17 +13,15 @@ export class PosComponent implements OnInit {
   public menuCategories = [];
   public menuItems = [];
   public invoicetemp = [];
-  public tot ;
-  public invoiceItem ={
+  public tot;
+  public invoiceItem = {
     _id: '',
     name: '',
-    specialrequst: '',
-    quantity: '',
     price: '',
     itemTotal: ['']
-
-  }
-  constructor(private posServices: PosService, private menuService: MenuService) { }
+  };
+  public invoiceAddItems: FormGroup;
+  constructor(private posServices: PosService, private menuService: MenuService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.getMenuCategories();
@@ -65,13 +64,14 @@ export class PosComponent implements OnInit {
       this.menuItems = this.posView.Soup;
     }
   }
-  addToInvoice(item){
+  addToInvoice(item) {
     this.invoiceItem._id = item._id;
     this.invoiceItem.name = item.name;
     this.invoiceItem.price = item.price;
+    console.log(this.invoiceAddItems.value)
     this.invoicetemp.push(this.invoiceItem);
   }
-  payInvoice(){
-console.log(this.invoicetemp)
+  payInvoice() {
+    console.log(this.invoicetemp);
   }
 }

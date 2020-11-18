@@ -14,19 +14,27 @@
             </div>
             <div class="column middle">
                 <div class="card-deck no-gutters">
-                    <div class="col-12 col-sm-6 col-md-6 col-lg-3" *ngFor="let menuItem of menuItems">
-                        <div class="card h-60 mb-4">
-                            <div class="card-header">
-                                <h5 class="card-title m-0 p-0 font-weight-bolder text-secondary"> {{menuItem.name}}
-                                </h5>
+                    <form [formGroup]="invoiceAddItems" (ngSubmit)="addToInvoice()">
+
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-3" *ngFor="let menuItem of menuItems">
+                            <div class="card h-60 mb-4">
+                                <div class="card-header">
+                                    <h5 class="card-title m-0 p-0 font-weight-bolder text-secondary"> {{menuItem.name}}
+                                    </h5>
+                                </div>
+                                <div class="card-body text-left">
+                                    <p class="card-text">{{menuItem.description}}</p>
+                                    <p class="card-text">{{menuItem.altDesc}}</p>
+                                </div>
+                                <input type="number" {id}="quantity" name="quantity" value="1">
+                                <label>
+                                Special request:
+                                <input type="text" id="specialRequest" name="specialRequest">
+                              </label>
+                                <button (click)="addToInvoice(menuItem)" class="card-footer btn btn-warning"><span class="font-lead-base font-weight-bold text-muted">{{menuItem.price}} LE.</span></button>
                             </div>
-                            <div class="card-body text-left">
-                                <p class="card-text">{{menuItem.description}}</p>
-                                <p class="card-text">{{menuItem.altDesc}}</p>
-                            </div>
-                            <button (click)="addToInvoice(menuItem)" class="card-footer btn btn-warning"><span class="font-lead-base font-weight-bold text-muted">{{menuItem.price}} LE.</span></button>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
             <div class="column side">
@@ -38,6 +46,7 @@
                             <th scope="col">special request</th>
                             <th scope="col">Price</th>
                             <th scope="col">Qtty</th>
+                            <th scope="col">Special Request</th>
                             <th scope="col">Total</th>
                         </tr>
                     </thead>
@@ -46,8 +55,9 @@
                             <td>{{ item.name }}</td>
                             <td>{{ item.specialrequest }}</td>
                             <td>{{ item.price }}</td>
-                            <td><input type="number" id="quantity" name="quantity"> </td>
-                            <td>{{ item.price * quantity }}</td>
+                            <td>{{item.quantity}}</td>
+                            <td>{{item.specialRequest}}</td>
+                            <td>{{ item.price }}</td>
                         </tr>
                     </tbody>
                 </table>
