@@ -8,25 +8,34 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./customers.component.css']
 })
 export class CustomersComponent implements OnInit {
-  searchForm;
+  searchPhoneForm;
+  searchNameForm;
   public name;
   public searchCustomers = [];
   public allCustomers = [];
+
   constructor(private formBuilder: FormBuilder, private customerService: CustomersService) { }
 
   ngOnInit(): void {
-    this.searchForm = new FormGroup({
+    this.searchPhoneForm = new FormGroup({
       mainNumber: new FormControl('')
     })
-    this.getAllInvoices()
+    this.searchNameForm = new FormGroup({
+      name: new FormControl('')
+    })
+    this.getAllCustomers()
   }
-  getAllInvoices() {
+  getAllCustomers() {
     return this.customerService.getCustomers()
       .subscribe(data => this.allCustomers = data)
   }
 
+  searchPhone() {
+    return this.customerService.searchPhone(this.searchPhoneForm.value)
+      .subscribe(data => this.searchCustomers = data)
+  }
   searchName() {
-    return this.customerService.searchPhone(this.searchForm.value)
+    return this.customerService.searchName(this.searchNameForm.value)
       .subscribe(data => this.searchCustomers = data)
   }
 }

@@ -2,9 +2,15 @@
 
     <div class="row">
         <button class="btn btn-primary border border-light p-5" [routerLink]="['/newcustomer']">New customer</button>
-        <form [formGroup]="searchForm" (ngSubmit)="searchName()" class="text-center border border-light p-5">
+        <form [formGroup]="searchPhoneForm" (ngSubmit)="searchPhone()" class="text-center border border-light p-5">
             <div class="form-group">
-                <input type="text" formControlName="mainNumber" id="defaultRegisterFormMainNumber" class="form-control" placeholder="Pone">
+                <input type="text" formControlName="mainNumber" id="defaultRegisterFormMainNumber" class="form-control" placeholder="Phone">
+                <button class="btn btn-info my-4 btn-block" type="submit">search</button>
+            </div>
+        </form>
+        <form [formGroup]="searchNameForm" (ngSubmit)="searchName()" class="text-center border border-light p-5">
+            <div class="form-group">
+                <input type="text" formControlName="name" id="defaultRegisterFormName" class="form-control" placeholder="Name">
                 <button class="btn btn-info my-4 btn-block" type="submit">search</button>
             </div>
         </form>
@@ -16,6 +22,7 @@
                     <td>{{ item.mainNumber }}</td>
                     <td>{{ item.name }}</td>
                 </button>
+                <br/>
                 </tr>
             </table>
         </div>
