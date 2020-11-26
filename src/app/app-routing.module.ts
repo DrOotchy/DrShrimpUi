@@ -65,11 +65,18 @@ const routes: Routes = [
     path: 'recipesdetails/:id',
     component: RecipeDetailsComponent,
     canActivate: [AuthGuard]
-  }, {
+  },
+  {
     path: 'orders',
     component: PosComponent,
     canActivate: [AuthGuard]
-  }, {
+  },
+  {
+    path: 'orders/:id',
+    component: PosComponent,
+    canActivate: [AuthGuard]
+  },
+  {
     path: 'allInvoicesDetails',
     component: AllDetailsComponent,
     canActivate: [AuthGuard]
@@ -97,7 +104,7 @@ const routes: Routes = [
     path: 'listInventory',
     component: ListInventoryComponent,
     canActivate: [AuthGuard]
-  } ,
+  },
   {
     path: 'customer/:id',
     component: CustomerDetailsComponent,

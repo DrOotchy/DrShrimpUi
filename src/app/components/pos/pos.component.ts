@@ -13,13 +13,13 @@ export class PosComponent implements OnInit {
   public menuCategories = [];
   public menuItems = [];
   public invoicetemp = [];
-  public tot;
+  public menuView;
   public invoiceItem = {
     _id: '',
     name: '',
     price: '',
     quantity: '',
-    specialRrequest:'',
+    specialRrequest: '',
     itemTotal: ['']
   };
   public invoiceAddItems: FormGroup;
@@ -28,6 +28,7 @@ export class PosComponent implements OnInit {
   ngOnInit(): void {
     this.getMenuCategories();
     this.getPOSview();
+    this.getMenuview()
   }
   getMenuCategories() {
     return this.menuService.getCategories()
@@ -36,6 +37,10 @@ export class PosComponent implements OnInit {
   getPOSview() {
     return this.menuService.getPOSview()
       .subscribe(data => this.posView = data);
+  }
+  getMenuview() {
+    return this.menuService.getMenu()
+      .subscribe(data => this.menuView = data);
   }
   getMenuItems(name) {
     if (name === 'Salads') {
@@ -76,5 +81,8 @@ export class PosComponent implements OnInit {
   }
   payInvoice() {
     console.log(this.invoicetemp);
+  }
+  getLog(pass){
+    console.log(pass)
   }
 }

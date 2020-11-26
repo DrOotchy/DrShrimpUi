@@ -27,15 +27,15 @@ export class CustomersComponent implements OnInit {
   }
   getAllCustomers() {
     return this.customerService.getCustomers()
-      .subscribe(data => this.allCustomers = data)
+      .subscribe(data => this.allCustomers = data);
   }
 
   searchPhone() {
     return this.customerService.searchPhone(this.searchPhoneForm.value)
-      .subscribe(data => this.searchCustomers = data)
+      .subscribe(data => this.allCustomers = data);
   }
   searchName() {
     return this.customerService.searchName(this.searchNameForm.value)
-      .subscribe(data => this.searchCustomers = data)
+      .subscribe(data => this.allCustomers = data);
   }
 }

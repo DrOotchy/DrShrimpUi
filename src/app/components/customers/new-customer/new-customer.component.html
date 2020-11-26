@@ -7,20 +7,18 @@
             <input type="text" formControlName="name" id="defaultRegisterFormFirstName" class="form-control" placeholder="Name">
             <input type="text" formControlName="mainNumber" id="defaultRegisterFormPhone" class="form-control" placeholder="Phone">
             <input type="text" formControlName="alternativeNumbers" id="defaultRegisterFormalternativeNumbers" class="form-control" placeholder="Alternate">
-
-        </div>
-        <div formGroupName="address" class="col">
-            <input type="text" formControlName="buildingNo" id="defaultRegisterFormBuildingNumber" class="form-control" placeholder="Building Number">
-            <input type="text" formControlName="street" id="defaultRegisterFormStreet" class="form-control" placeholder="Street">
-            <input type="text" formControlName="floor" id="defaultRegisterFormFloor" class="form-control" placeholder="Floor">
-            <input type="text" formControlName="apartmentNo" id="defaultRegisterFormApartment" class="form-control" placeholder="Apartment">
-            <input type="text" formControlName="specialMark" id="defaultRegisterFormSpecialMark" class="form-control" placeholder="Special Mark">
-            <input type="text" formControlName="area" id="defaultRegisterFormArea" class="form-control" placeholder="Area">
-            <input type="text" formControlName="district" id="defaultRegisterFormDistrict" class="form-control" placeholder="District">
+            <div formGroupName="address">
+                <input type="text" formControlName="buildingNo" id="defaultRegisterFormBuildingNumber" class="form-control" placeholder="Building Number">
+                <input type="text" formControlName="street" id="defaultRegisterFormStreet" class="form-control" placeholder="Street">
+                <input type="text" formControlName="floor" id="defaultRegisterFormFloor" class="form-control" placeholder="Floor">
+                <input type="text" formControlName="apartmentNo" id="defaultRegisterFormApartment" class="form-control" placeholder="Apartment">
+                <input type="text" formControlName="specialMark" id="defaultRegisterFormSpecialMark" class="form-control" placeholder="Special Mark">
+                <input type="text" formControlName="area" id="defaultRegisterFormArea" class="form-control" placeholder="Area">
+                <input type="text" formControlName="district" id="defaultRegisterFormDistrict" class="form-control" placeholder="District">
+            </div>
         </div>
     </div>
 
-  
     <button class="btn btn-info my-4 btn-block" type="submit">Add New Customer</button>
     <button class="btn btn-info my-4 btn-block" [routerLink]="['/orders']">Cancel</button>
 

@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IMenu } from '../interfaces/menu';
+import { IPos } from '../interfaces/pos';
+
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -9,8 +11,8 @@ import { Observable } from 'rxjs';
 export class MenuService {
 
   constructor(private http: HttpClient) { }
-  getMenu(): Observable<any[]> {
-    return this.http.get<any[]>('api/menu/all');
+  getMenu(): Observable<IPos[]> {
+    return this.http.get<IPos[]>('api/menu/all');
   }
   getSubMenu(sub): Observable<any[]> {
     return this.http.get<any[]>(`api/menu/sub/` + sub);
@@ -21,7 +23,7 @@ export class MenuService {
   getMenuItems(_id): Observable<any[]> {
     return this.http.get<any[]>(`api/menu/bysection/` + _id);
   }
-  getPOSview(): Observable<any[]> {
-    return this.http.get<any[]>(`api/menu/POSview`);
+  getPOSview(): Observable<IPos[]> {
+    return this.http.get<IPos[]>(`api/menu/POSview`);
   }
 }
