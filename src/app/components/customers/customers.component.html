@@ -1,24 +1,30 @@
 <div class="jumbotron">
 
     <div class="row">
-        <div>
-            <app-new-customer></app-new-customer>
+        <div class="column side">
+            <div class="row">
+                <form [formGroup]="searchPhoneForm" (ngSubmit)="searchPhone()"
+                    class="text-center border border-light p-5">
+                    <div class="form-group">
+                        <input type="text" onkeypress="searchPhone($event)" formControlName="mainNumber"
+                            id="defaultRegisterFormMainNumber" class="form-control" placeholder="Phone">
+                        <button class="btn btn-info my-4 btn-block" type="submit">search</button>
+                    </div>
+                </form>
+                <form [formGroup]="searchNameForm" (ngSubmit)="searchName()"
+                    class="text-center border border-light p-5">
+                    <div class="form-group">
+                        <input type="text" onkeypress="searchName($event)" formControlName="name"
+                            id="defaultRegisterFormName" class="form-control" placeholder="Name">
+                        <button class="btn btn-info my-4 btn-block" type="submit">search</button>
+                    </div>
+                </form>
+            </div>
+            <div>
+                <app-new-customer></app-new-customer>
+            </div>
         </div>
 
-        <div class="col md-2">
-            <form [formGroup]="searchPhoneForm" (ngSubmit)="searchPhone()" class="text-center border border-light p-5">
-                <div class="form-group">
-                    <input type="text" onkeypress="searchPhone($event)" formControlName="mainNumber" id="defaultRegisterFormMainNumber" class="form-control" placeholder="Phone">
-                    <button class="btn btn-info my-4 btn-block" type="submit">search</button>
-                </div>
-            </form>
-            <form [formGroup]="searchNameForm" (ngSubmit)="searchName()" class="text-center border border-light p-5">
-                <div class="form-group">
-                    <input type="text" onkeypress="searchName($event)" formControlName="name" id="defaultRegisterFormName" class="form-control" placeholder="Name">
-                    <button class="btn btn-info my-4 btn-block" type="submit">search</button>
-                </div>
-            </form>
-        </div>
         <div>
             <table class="table table-striped">
                 <thead>
@@ -38,8 +44,10 @@
                         <td>{{ item.customerNumber }}</td>
                         <td>{{ item.name }}</td>
                         <td>{{ item.mainNumber }}</td>
-                        <td><button class="btn btn-primary float-left" [routerLink]="['/orders', item._id]">new Order</button></td>
-                        <td><button class="btn btn-secondary float-left" [routerLink]="['/customer', item._id]">View Details</button></td>
+                        <td><button class="btn btn-primary float-left" [routerLink]="['/orders', item._id]">new
+                                Order</button></td>
+                        <td><button class="btn btn-secondary float-left" [routerLink]="['/customer', item._id]">View
+                                Details</button></td>
                         <td>{{ item.startDate | date:'shortDate' }}</td>
                     </tr>
                 </tbody>

@@ -27,7 +27,7 @@ export class PosComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMenuCategories();
-    this.getPOSview();
+    // this.getPOSview();
     this.getMenuview()
   }
   getMenuCategories() {
@@ -42,42 +42,13 @@ export class PosComponent implements OnInit {
     return this.menuService.getMenu()
       .subscribe(data => this.menuView = data);
   }
-  getMenuItems(name) {
-    if (name === 'Salads') {
-      this.menuItems = this.posView.Salads;
-    }
-    if (name === 'Sandwiches') {
-      this.menuItems = this.posView.Sandwiches;
-    }
-    if (name === 'Rice') {
-      this.menuItems = this.posView.Rice;
-    }
-    if (name === 'Pasta') {
-      this.menuItems = this.posView.Pasta;
-    }
-    if (name === 'Meals') {
-      this.menuItems = this.posView.Meals;
-    }
-    if (name === 'Kilos') {
-      this.menuItems = this.posView.Kilos;
-    }
-    if (name === 'Appetizerz') {
-      this.menuItems = this.posView.Appetizerz;
-    }
-    if (name === 'Beverages') {
-      this.menuItems = this.posView.Beverages;
-    }
-    if (name === 'Soup') {
-      this.menuItems = this.posView.Soup;
-    }
+  getMenuItems(id) {
+
+    this.menuItems = this.menuView.filter(r => r.menuSection._id === id);
+    
   }
   addToInvoice(item) {
-    console.log(item)
-    this.invoiceItem._id = item._id;
-    this.invoiceItem.name = item.name;
-    this.invoiceItem.price = item.price;
-    this.invoiceItem.quantity = item.quantity
-    this.invoicetemp.push(this.invoiceItem);
+     this.invoicetemp.push(item);
   }
   payInvoice() {
     console.log(this.invoicetemp);

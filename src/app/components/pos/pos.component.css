@@ -9,7 +9,7 @@
 /* Left and right column */
 
 .column.side {
-    width: 25%;
+    width: 20%;
 }
 
 
@@ -32,7 +32,7 @@
     width: 80%;
     border: none;
     background-color: #c5e3e7;
-    padding: 14px 28px;
+    padding: 10px 10px;
     font-size: 20px;
     cursor: pointer;
     text-align: left;
