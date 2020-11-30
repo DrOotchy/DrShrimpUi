@@ -1,62 +1,67 @@
 <div class="jumbotron">
-    <div>
-        <div class="row">
-            <div class="column side">
-                <ul class="list-group" *ngFor="let item of menuCategories; index as i">
-                    <button class="block list-group-item" (click)="getMenuItems(item._id)">{{item.name}}</button>
-                    <br>
-                </ul>
-                <div class="row">
-                    <button class="btn btn-secondary float-left" [routerLink]="['/allInvoicesDetails']">All Invoices</button>
-                    <button class="btn btn-secondary float-left" [routerLink]="['/newcustomer']">New customer</button>
-                    <button (click)="getLog(menuView)" class="btn btn-secondary float-left">log</button>
-                </div>
-                <br />
-            </div>
-            <div class="column middle">
-                <div class="card-deck no-gutters">
+    <div class="row">
+        <button class="btn btn-secondary float-left" [routerLink]="['/newcustomer']">New customer</button>
+    </div>
+    <div class="row">
+        <div class="column side menu">
 
-                    <div class="col-12 col-sm-6 col-md-6 col-lg-3" *ngFor="let menuItem of menuItems">
-                        <div class="card h-60 mb-4">
-                            <div class="card-header">
-                                <h5 class="card-title m-0 p-0 font-weight-bolder text-secondary"> {{menuItem.name}}
-                                </h5>
-                            </div>
-                            <div class="card-body text-left">
-                                <p class="card-text">{{menuItem.description}}</p>
-                                <p class="card-text">{{menuItem.altDesc}}</p>
-                            </div>
-                           
-                            <button (click)="addToInvoice(menuItem)" class="card-footer btn btn-warning"><span class="font-lead-base font-weight-bold text-muted">{{menuItem.price}} LE.</span></button>
+            <br />
+            <ul class="list-group" *ngFor="let item of menuCategories; index as i">
+                <button class="block list-group-item" (click)="getMenuItems(item._id)">{{item.name}}</button>
+                <br>
+            </ul>
+
+        </div>
+        <div class="column middle">
+            <div class="card-deck no-gutters">
+
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3" *ngFor="let menuItem of menuItems">
+                    <div class="card h-60 mb-4">
+                        <div class="card-header">
+                            <h5 class="card-title m-0 p-0 font-weight-bolder text-secondary"> {{menuItem.name}}
+                            </h5>
                         </div>
+                        <div class="card-body text-left">
+                            <p class="card-text">{{menuItem.description}}</p>
+                            <p class="card-text">{{menuItem.altDesc}}</p>
+                        </div>
+
+                        <button (click)="addToInvoice(menuItem)" class="card-footer btn btn-warning"><span class="font-lead-base font-weight-bold text-muted">{{menuItem.price}} LE.</span></button>
                     </div>
                 </div>
             </div>
-            <div class="column side">
-                <h2>Invoice</h2>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">Item</th>
-                            <th scope="col">special request</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Qtty</th>
-                            <th scope="col">Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let item of invoicetemp; index as i">
-                            <td>{{ item.name }}</td>
-                            <td>
-                               <input type="text" id="specialRequest" name="specialRequest" placeholder="Special Request" >{{ item.specialrequest }}</td>
-                            <td>{{ item.price }}</td>
-                            <td> <input type="number" id="quantity" name="quantity" value=1>{{item.quantity}}</td>
-                            <td>{{ item.price }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <button (click)="payInvoice()" class="card-footer btn btn-warning">Order</button>
+        </div>
+        <div class="column side invoice">
+            <div>
+                <form class="form-group" [formGroup]="invoiceAddItems">
+                    <div formArrayName="items">
+                        <table class="table table-stripped">
+                            <tr>
+                                <th>ItemName</th>
+                                <th>Completed</th>
+                                <th>Specila Request</th>
+                                <th>QTTY</th>
+                                <th>Price</th>
+                                <th>Action</th>
+                            </tr>
+                            <tr *ngFor="let x of invoiceAddItems.get('items').controls;let i=index;trackBy:track" [formGroupName]="i">
+                                <td><input class="form-control" formControlName="name" placeholder="Item name"></td>
+                                <td><input class="form-control" type="checkbox" formControlName="completed"></td>
+                                <td><input class="form-control" formControlName="specialRrequest"></td>
+                                <td><input type="number" class="form-control" formControlName="quantity" value=1></td>
+                                <td><input class="form-control" formControlName="price"></td>
+
+                                <td><button class="btn btn-secondary" (click)="deleteItem(i)">Delete</button></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <button class="btn btn-primary" (click)="getMyData()">Refresh</button>
+                    <button class="btn btn-secondary" (click)="add()">Add New Item</button>
+                    <button class="btn btn-primary" (click)="submit()">Submit</button>
+                </form>
             </div>
+
         </div>
     </div>
+
 </div>
