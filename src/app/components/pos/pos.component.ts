@@ -77,6 +77,7 @@ export class PosComponent implements OnInit {
       specialRrequest: new FormControl('', [Validators.required]),
       quantity: new FormControl(0, [Validators.required]),
       price: new FormControl(0, [Validators.required]),
+      itemTotal: new FormControl(0, [Validators.required])
 
     }))
   }
@@ -104,6 +105,8 @@ export class PosComponent implements OnInit {
           specialRrequest: new FormControl(dat[x].priority, [Validators.required]),
           price: new FormControl(dat[x].price, [Validators.required]),
           quantity: new FormControl(dat[x].quantity || 1, [Validators.required]),
+          itemTotal: new FormControl((dat[x].price * 1), [Validators.required])
+
         }))
       }
     }

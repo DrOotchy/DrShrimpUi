@@ -37,20 +37,19 @@
                     <div formArrayName="items">
                         <table class="table table-stripped">
                             <tr>
-                                <th>ItemName</th>
-                                <th>Completed</th>
+                                <th>Item Name</th>
                                 <th>Specila Request</th>
                                 <th>QTTY</th>
                                 <th>Price</th>
+                                <th>Total</th>
                                 <th>Action</th>
                             </tr>
                             <tr *ngFor="let x of invoiceAddItems.get('items').controls;let i=index;trackBy:track" [formGroupName]="i">
                                 <td><input class="form-control" formControlName="name" placeholder="Item name"></td>
-                                <td><input class="form-control" type="checkbox" formControlName="completed"></td>
                                 <td><input class="form-control" formControlName="specialRrequest"></td>
                                 <td><input type="number" class="form-control" formControlName="quantity" value=1></td>
                                 <td><input class="form-control" formControlName="price"></td>
-
+                                <td><input class="form-control" formControlName="itemTotal"></td>
                                 <td><button class="btn btn-secondary" (click)="deleteItem(i)">Delete</button></td>
                             </tr>
                         </table>
