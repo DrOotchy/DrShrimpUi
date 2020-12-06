@@ -4,6 +4,7 @@ import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TheMenuComponent } from './components/the-menu/the-menu.component';
 import { SuppliersComponent } from './components/suppliers/suppliers.component';
+import { NewComponent } from './components/suppliers/new/new.component';
 import { RecipeComponent } from './components/recipe/recipe.component';
 import { CompetitorsComponent } from './components/competitors/competitors.component';
 import { AuthGuard } from './services/auth.guard';
@@ -43,6 +44,11 @@ const routes: Routes = [
   {
     path: 'suppliers',
     component: SuppliersComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'newsupplier',
+    component: NewComponent,
     canActivate: [AuthGuard]
   },
   {

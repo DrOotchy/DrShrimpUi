@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SuppliersService } from '../../../services/suppliers.service';
-import { SuppliersComponent } from '../suppliers.component';
+import { InventoryService } from '../../../services/inventory.service';
 
 @Component({
   selector: 'app-new',
@@ -14,12 +14,20 @@ export class NewComponent implements OnInit {
     location: '',
     group: ''
   }
-  constructor(private supliersService: SuppliersService) { }
+  categories = [];
+  constructor(private supliersService: SuppliersService, private inventoryService: InventoryService) { }
 
   ngOnInit(): void {
+    this.getInventCat()
   }
   newSuplier(formObj) {
     console.log(formObj);
-    this.supliersService.createSupplier(formObj);
+    this.supliersService.createSupplier(formObj)
+    .subscribe(data => alert(data.name + 'Added Successfully' ))
   }
+  getInventCat() {
+    this.inventoryService.getInventCategories()
+      .subscribe(res => this.categories = res)
+  }
+
 }

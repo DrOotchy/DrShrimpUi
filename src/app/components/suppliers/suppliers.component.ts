@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SuppliersService } from '../../services/suppliers.service';
+import { InventoryService } from '../../services/inventory.service';
 
 @Component({
   selector: 'app-suppliers',
@@ -7,39 +8,33 @@ import { SuppliersService } from '../../services/suppliers.service';
   styleUrls: ['./suppliers.component.css']
 })
 export class SuppliersComponent implements OnInit {
-  allSupliers: {};
-  kitchensuppliers: {};
+  public allSupliers
+  public view 
+  public allInvent = []
 
-  constructor(private suplierService: SuppliersService) {
+  constructor(private suplierService: SuppliersService, private inventoryService: InventoryService) {
 
   }
   ngOnInit(): void {
     this.getSupplier();
+    this.getALLCategories();
   }
   getSupplier() {
     this.suplierService.getAllSuppliers().subscribe((response) => {
       this.allSupliers = response;
+      this.view = response
     });
   }
-  getShrimp() {
-    this.suplierService.getSuppliersByGroup('shrimp').subscribe((response) => {
-      this.allSupliers = response;
-    });
+
+  getView(id) {
+    this.view = this.allSupliers.filter(r => r.group._id === id);
+
   }
-  getKitchen() {
-    this.suplierService.getSuppliersByGroup('kitchen').subscribe((response) => {
-      this.allSupliers = response;
-      console.log(this.allSupliers);
-    });
+
+  getALLCategories(){
+    return this.inventoryService.getInventCategories()
+    .subscribe(data => this.allInvent = data);
   }
-  getPlastics() {
-    this.suplierService.getSuppliersByGroup('plastics').subscribe((response) => {
-      this.allSupliers = response;
-    });
-  }
-  getPrintables() {
-    this.suplierService.getSuppliersByGroup('printables').subscribe((response) => {
-      this.allSupliers = response;
-    });
-  }
+    
+
 }

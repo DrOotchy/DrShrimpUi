@@ -1,5 +1,5 @@
-<div class="container">
-    <form #myform="ngForm">
+
+    <form class="col" #myform="ngForm">
         <div class="form-group">
             <label>Name :</label>
             <input type="text" [(ngModel)]="suppliers.name" name="name" class="form-control">
@@ -15,11 +15,9 @@
 
         <div class="form-group">
             <label for="group">Group</label>
-            <select id="group" class="form-control">
-      <option value="shrimp">Shrimp</option>
-      <option value="kitchen">kitchen</option>
-      <option value="printables">Printables</option>
-      <option value="plastics">Plastics</option>
+            <select id="group" name="group" [(ngModel)]="suppliers.group"  class="form-control">
+                <option *ngFor="let m of categories" [value]="m._id">{{m.name}}</option>
+    
 
     </select>
         </div>
@@ -27,5 +25,3 @@
 
 
     </form>
-
-</div>

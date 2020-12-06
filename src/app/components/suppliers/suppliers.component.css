@@ -1,0 +1,42 @@
+.column {
+    float: left;
+    padding: 5px;
+}
+
+
+/* Left and right column */
+
+.column.add {
+    width: 20%;
+}
+
+.column.side.invoice {
+    width: 40%;
+}
+
+
+/* Middle column */
+
+.column.middle {
+    width: 80%;
+}
+
+
+/* Clear floats after the columns */
+
+.row {
+    align-content: flex-start;
+    align-items: flex-start;
+}
+
+.block {
+    display: block;
+    width: 80%;
+    height: 60px;
+    border: none;
+    background-color: #c5e3e7;
+    padding: 10px 10px;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: left;
+}

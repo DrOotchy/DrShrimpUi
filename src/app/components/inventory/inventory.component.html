@@ -1,25 +1,24 @@
 <div class="jumbotron">
     <div class="row">
+        <form [formGroup]="searchForm" (ngSubmit)="search()"
+        class="text-center border border-light p-5">
+        <div class="form-group">
+            <input type="text" onkeypress="search($event)" formControlName="name"
+                id="searchName" class="form-control" placeholder="search">
+            <button class="btn btn-info my-4 btn-block" type="submit">search</button>
+        </div>
+    </form>
         <button class="btn btn-secondary float-left" [routerLink]="['/listInventory']">List Items</button>
         <button class="btn btn-secondary float-right" [routerLink]="['/inventoryIN']">ADD TO STOCK</button>
     </div>
     <br />
     <div>
         <div class="row">
-            <div class="column side">
-                <div class="column">
-                    <button class="btn btn-secondary block list-group-item float-left"
-                        [routerLink]="['/listInventory/kitchen']">Kitchen</button>
-                    <button class="btn btn-secondary block list-group-item float-left"
-                        [routerLink]="['/listInventory/packing']">Packing</button>
-                    <button class="btn btn-secondary block list-group-item float-left"
-                        [routerLink]="['/listInventory/utensiles']">Utensiles</button>
-                    <button class="btn btn-secondary block list-group-item float-left"
-                        [routerLink]="['/listInventory/detergents']">Detergents</button>
-                    <button class="btn btn-secondary block list-group-item float-left"
-                        [routerLink]="['/listInventory/spices']">Spices</button>
+            <div class="column side menu">
+                    <ul class="list-group" *ngFor="let item of cat; index as i">
+                            <button class="btn btn-warning block list-group-item float-left" (click)="getView(item._id)">{{item.name}}</button>
+                    </ul>
 
-                </div>
 
             </div>
             <div class="column middle">
@@ -34,7 +33,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let inv of allInvent; index as i">
+                        <tr *ngFor="let inv of view; index as i">
                             <td>{{ i + 1}}</td>
                             <td>{{inv.name}}</td>
                             <td>{{inv.unit}}</td>

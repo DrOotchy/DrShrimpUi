@@ -13,6 +13,9 @@ export class InventoryService {
   getItemByID(_id): Observable<any[]> {
     return this.http.get<any[]>(`api/inventory/item/` + _id);
   }
+  searchName(name): Observable<any[]> {
+    return this.http.post<any[]>(`api/inventory/item/name` , name);
+  }
   addNewItem(data): Observable<any> {
     return this.http.post(`api/inventory/newitem`, data);
   }
@@ -21,5 +24,13 @@ export class InventoryService {
   }
   newInventCategories(data): Observable<any> {
     return this.http.post(`api/inventory/categories/newCategory`, data);
+  }
+  inventoryIn(data): Observable<any> {
+    return this.http.post(`api/inventory/in/new`, data);
+
+  }
+  inventoryInID(data, id): Observable<any> {
+    return this.http.post(`api/inventory/in/id/`+ id , data);
+
   }
 }
