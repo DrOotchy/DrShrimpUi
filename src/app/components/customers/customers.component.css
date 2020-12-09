@@ -1,3 +1,6 @@
 .column.side {
     width: 35%;
 }
+.column.main {
+    width: 65%;
+}

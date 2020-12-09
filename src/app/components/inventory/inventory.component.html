@@ -1,13 +1,6 @@
 <div class="jumbotron">
     <div class="row">
-        <form [formGroup]="searchForm" (ngSubmit)="search()"
-        class="text-center border border-light p-5">
-        <div class="form-group">
-            <input type="text" onkeypress="search($event)" formControlName="name"
-                id="searchName" class="form-control" placeholder="search">
-            <button class="btn btn-info my-4 btn-block" type="submit">search</button>
-        </div>
-    </form>
+      
         <button class="btn btn-secondary float-left" [routerLink]="['/listInventory']">List Items</button>
         <button class="btn btn-secondary float-right" [routerLink]="['/inventoryIN']">ADD TO STOCK</button>
     </div>

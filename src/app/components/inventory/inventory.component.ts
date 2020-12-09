@@ -16,9 +16,7 @@ export class InventoryComponent implements OnInit {
   constructor(private inventoryService: InventoryService,private formBuilder: FormBuilder) { }
 
   async ngOnInit(): Promise<any> {
-    this.searchForm = new FormGroup({
-      name: new FormControl('')
-    })
+    
     this.getALLItems()
     this.getALLCategories()
   }
@@ -33,10 +31,7 @@ export class InventoryComponent implements OnInit {
     this.view = this.allInvent.filter(r => r.category._id === id);
 
   }
-  search() {
-    return this.inventoryService.searchName(this.searchForm.value)
-      .subscribe(data => this.view = data);
-  }
+ 
 
   getALLCategories(){
     return this.inventoryService.getInventCategories()
