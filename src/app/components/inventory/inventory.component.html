@@ -1,26 +1,34 @@
 <div class="jumbotron">
-    <div class="row">
-      
-        <button class="btn btn-secondary float-left" [routerLink]="['/listInventory']">List Items</button>
-        <button class="btn btn-secondary float-right" [routerLink]="['/inventoryIN']">ADD TO STOCK</button>
-    </div>
-    <br />
+
     <div>
         <div class="row">
             <div class="column side menu">
-                    <ul class="list-group" *ngFor="let item of cat; index as i">
-                            <button class="btn btn-warning block list-group-item float-left" (click)="getView(item._id)">{{item.name}}</button>
-                    </ul>
-
-
+                <ul class="list-group" *ngFor="let item of cat; index as i">
+                    <button class="btn btn-warning block list-group-item float-left"
+                        (click)="getView(item._id)">{{item.name}}</button>
+                </ul>
+                <br/>
+                <button class="btn btn-secondary block2 float-left"
+                        [routerLink]="['/listInventory']">List Items</button>
+                
             </div>
             <div class="column middle">
-                <table class="table table-striped">
+                <form [formGroup]="searchNameForm" (ngSubmit)="searchName()"
+                    class="text-center border border-light p-5">
+                    <div class="form-group">
+                        <input type="text" onkeypress="searchName($event)" formControlName="name"
+                            id="defaultRegisterFormName" class="form-control" placeholder="Name">
+                        <button class="btn btn-info my-4 btn-block" type="submit">search</button>
+                    </div>
+                </form>
+                <table class="table table-primary">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
+                            <th scope="col">Alt</th>
                             <th scope="col">Unit</th>
+                            <th scope="col">Brand</th>
                             <th scope="col">Category</th>
                             <th scope="col">ADD Stock</th>
                         </tr>
@@ -29,16 +37,24 @@
                         <tr *ngFor="let inv of view; index as i">
                             <td>{{ i + 1}}</td>
                             <td>{{inv.name}}</td>
+                            <td>{{inv.altName}}</td>
                             <td>{{inv.unit}}</td>
+                            <td>{{inv.brand.name}}</td>
                             <td>{{inv.category.name}}</td>
-                            <td><button class="btn btn-secondary" [routerLink]="['/inventoryIN', inv._id]">ADD STOCK</button></td>
+                            <td><button class="btn btn-secondary" (click)=toggleAdd(inv)>Re-Stock</button></td>
+
+
                         </tr>
                 </table>
             </div>
             <div class="column side">
+                <div *ngIf="showMe">
+                    <app-inv-in [childMessage]="message"></app-inv-in>
+                </div>
+                <br />
                 <app-new-inventory></app-new-inventory>
-                <br/>
-                <app-inv-in></app-inv-in>
+
+
             </div>
         </div>
     </div>

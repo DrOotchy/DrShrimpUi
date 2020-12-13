@@ -26,11 +26,12 @@ export class InventoryService {
     return this.http.post(`api/inventory/categories/newCategory`, data);
   }
   inventoryIn(data): Observable<any> {
-    return this.http.post(`api/inventory/in/new`, data);
-
+    return this.http.post(`api/inventory/in`, data);
   }
-  inventoryInID(data, id): Observable<any> {
-    return this.http.post(`api/inventory/in/id/`+ id , data);
-
+  inventoryOUT(data): Observable<any> {
+    return this.http.post(`api/inventory/out`, data);
+  }
+  getBrands(): Observable<any> {
+    return this.http.get<any[]>(`api/brand/all`)
   }
 }

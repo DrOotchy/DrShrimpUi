@@ -1,6 +1,6 @@
 <form [formGroup]="invINForm" (ngSubmit)="onSubmit()" class="text-center border border-light p-5">
 
-    <p class="h4 mb-4">ADD TO STOCK</p>
+    <p class="h4 mb-4">RE-Stock {{childMessage.name}}</p>
 
     <div class="form-row mb-4">
         <div class="col">
@@ -8,7 +8,7 @@
             <input type="text" formControlName="pricePerUnit" id="defaultRegisterFormpricePerUnit" class="form-control" placeholder="Price Per Unit">
             <input type="text" formControlName="price" id="defaultRegisterFormPrice" class="form-control" placeholder="Total Price">
             <select class="form-control" id="defaultRegisterFormSupplier" formControlName="supplier">
-                <option *ngFor="let m of allSupliers" [value]="m._id">{{m.name}}</option>
+                <option *ngFor="let m of allSupliers" [value]="m._id">{{m.name}} - {{m.group.name}}</option>
                 </select>
             <input type="date" formControlName="date" id="defaultRegisterFormdate" class="form-control" value="2020-11-15">
 

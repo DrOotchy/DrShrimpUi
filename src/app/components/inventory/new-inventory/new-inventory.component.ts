@@ -10,24 +10,31 @@ import { InventoryService } from '../../../services/inventory.service';
 export class NewInventoryComponent implements OnInit {
   public itemForm;
   public allInvent = []
+  public brands = []
   constructor(private formBuilder: FormBuilder, private inventoryService: InventoryService) { }
   ngOnInit(): void {
     this.itemForm = new FormGroup({
       name: new FormControl(''),
       altName: new FormControl(''),
-      category: new FormControl('')
+      category: new FormControl(''),
+      unit: new FormControl(''),
+      brand: new FormControl('')
     });
-    
+    this.getBrands()
     this.getALLCategories()
 
   }
 
   onSubmit() {
-    return this.inventoryService.newInventCategories(this.itemForm.value)
-      .subscribe(data => alert(data.name + 'Added Successfully'));
+    return this.inventoryService.addNewItem(this.itemForm.value)
+      .subscribe(data => alert(data.inventoryItem.name + 'Added Successfully'));
   }
   getALLCategories(){
     return this.inventoryService.getInventCategories()
     .subscribe(data => this.allInvent = data);
+  }
+  getBrands(){
+    return this.inventoryService.getBrands()
+    .subscribe(data => this.brands = data)
   }
 }

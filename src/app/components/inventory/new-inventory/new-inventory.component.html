@@ -6,10 +6,20 @@
         <div class="col">
             <input type="text" formControlName="name" id="defaultRegisterFormName" class="form-control" placeholder="Name">
             <input type="text" formControlName="altName" id="defaultRegisterFormAltName" class="form-control" placeholder="Alt Name">
-            <select class="form-control" formControlName="priority">
+            <select class="form-control" formControlName="unit">
+                <option  value="kg">KG</option>
+                <option  value="bundle">Bundle</option>
+                <option  value="peice">Peice</option>
+                <option value="pack">Pack</option>
+                <option value="bottle">Bottle</option>
+
+                </select>
+            <select class="form-control" formControlName="category">
                 <option *ngFor="let m of allInvent" [value]="m._id">{{m.name}}</option>
                 </select>
-
+                <select class="form-control" formControlName="brand">
+                    <option *ngFor="let x of brands" [value]="x._id">{{x.name}}</option>
+                    </select>
         </div>
     </div>
 

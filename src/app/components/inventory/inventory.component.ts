@@ -11,14 +11,26 @@ export class InventoryComponent implements OnInit {
   public cat
   public view 
   public allInvent = []
-
+  public searchNameForm
+  showMe:boolean=false
   searchForm
   constructor(private inventoryService: InventoryService,private formBuilder: FormBuilder) { }
+  message = {
+    name: String,
+    id: String
+  }
 
   async ngOnInit(): Promise<any> {
-    
+      this.searchNameForm = new FormGroup({
+    name: new FormControl('')
+  })
     this.getALLItems()
     this.getALLCategories()
+  }
+  toggleAdd(item){
+    this.message.id= item._id
+    this.message.name= item.name
+    this.showMe=true
   }
   async getALLItems(){
     return this.inventoryService.getAllInventoryItems()
@@ -36,5 +48,10 @@ export class InventoryComponent implements OnInit {
   getALLCategories(){
     return this.inventoryService.getInventCategories()
     .subscribe(data => this.cat = data);
+  }
+
+  searchName() {
+    return this.inventoryService.searchName(this.searchNameForm.value)
+      .subscribe(data => this.view = data);
   }
 }

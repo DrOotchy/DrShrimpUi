@@ -38,3 +38,14 @@
     cursor: pointer;
     text-align: left;
 }
+.block2 {
+    display: block;
+    width: 80%;
+    border: none;
+    background-color: #53883b;
+    padding: 14px 28px;
+    margin-bottom: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: left;
+}
