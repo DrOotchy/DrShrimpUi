@@ -9,45 +9,65 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 })
 export class InventoryComponent implements OnInit {
   public cat
-  public view 
+  public view
   public allInvent = []
   public searchNameForm
-  showMe:boolean=false
+
+  showMe: boolean = false
+  showStock: boolean = false
+  showNewItem: boolean = true
   searchForm
-  constructor(private inventoryService: InventoryService,private formBuilder: FormBuilder) { }
+  stock: any;
+
+  constructor(private inventoryService: InventoryService, private formBuilder: FormBuilder) { }
   message = {
     name: String,
     id: String
   }
 
   async ngOnInit(): Promise<any> {
-      this.searchNameForm = new FormGroup({
-    name: new FormControl('')
-  })
+    this.searchNameForm = new FormGroup({
+      name: new FormControl('')
+    })
     this.getALLItems()
     this.getALLCategories()
   }
-  toggleAdd(item){
-    this.message.id= item._id
-    this.message.name= item.name
-    this.showMe=true
+  toggleAdd(item) {
+    this.message.id = item._id
+    this.message.name = item.name
+    this.showStock = false
+    this.showMe = true
   }
-  async getALLItems(){
+  toggleStock(item) {
+    this.getStockID(item._id)
+    this.showMe = false
+    this.showStock = true
+  }
+  toggleNewItem(){
+    this.showNewItem != this.showNewItem
+  }
+  toggleNewBrand(){
+
+  }
+  async getALLItems() {
     return this.inventoryService.getAllInventoryItems()
-    .subscribe(data => {
-      this.allInvent = data
-      this.view = data
-    });
+      .subscribe(data => {
+        this.allInvent = data
+        this.view = data
+      });
   }
   getView(id) {
     this.view = this.allInvent.filter(r => r.category._id === id);
 
   }
- 
+  getStockID(id){
+    return this.inventoryService.getInventoryInID(id)
+    .subscribe(data => this.stock = data)
+  }
 
-  getALLCategories(){
+  getALLCategories() {
     return this.inventoryService.getInventCategories()
-    .subscribe(data => this.cat = data);
+      .subscribe(data => this.cat = data);
   }
 
   searchName() {

@@ -21,6 +21,7 @@ import { ListInventoryComponent } from './components/inventory/list-inventory/li
 import { CustomerDetailsComponent } from './components/customers/customer-details/customer-details.component';
 import { InvINComponent } from './components/inventory/inv-in/inv-in.component';
 import { InvOUTComponent } from './components/inventory/inv-out/inv-out.component';
+import { SingleItemStockViewComponent } from './components/inventory/stock/single-item-stock-view/single-item-stock-view.component';
 const routes: Routes = [
   {
     path: 'login',
@@ -129,6 +130,11 @@ const routes: Routes = [
   {
     path: 'inventoryOUT',
     component: InvOUTComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'stockItemVS',
+    component: SingleItemStockViewComponent,
     canActivate: [AuthGuard]
   }
 ];

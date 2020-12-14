@@ -34,4 +34,7 @@ export class InventoryService {
   getBrands(): Observable<any> {
     return this.http.get<any[]>(`api/brand/all`)
   }
+  getInventoryInID(id): Observable<any> {
+    return this.http.get<any[]>(`api/inventory/in/`+ id)
+  }
 }

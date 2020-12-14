@@ -46,6 +46,7 @@ import { CustomerDetailsComponent } from './components/customers/customer-detail
 import { InvINComponent } from './components/inventory/inv-in/inv-in.component';
 import { InvOUTComponent } from './components/inventory/inv-out/inv-out.component';
 import { PurchaseInvoiceComponent } from './components/inventory/purchase-invoice/purchase-invoice.component';
+import { SingleItemStockViewComponent } from './components/inventory/stock/single-item-stock-view/single-item-stock-view.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -82,7 +83,8 @@ import { PurchaseInvoiceComponent } from './components/inventory/purchase-invoic
     CustomerDetailsComponent,
     InvINComponent,
     InvOUTComponent,
-    PurchaseInvoiceComponent
+    PurchaseInvoiceComponent,
+    SingleItemStockViewComponent
   ],
   imports: [
     BrowserModule,
