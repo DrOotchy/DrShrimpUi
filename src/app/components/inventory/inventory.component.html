@@ -54,8 +54,9 @@
                 </div>
                 <br />
                 <div *ngIf="showStock">
+                    <p>Stock Available</p>
                     <ul class="list-group" *ngFor="let item of stock; index as i">
-                        <li>{{i}} - {{item.amount_in}}</li>
+                        <p class="list-group-item">{{i}} - {{item.amount_in}} - {{item.date}}</p>
                     </ul>
                 </div>
                 <br />

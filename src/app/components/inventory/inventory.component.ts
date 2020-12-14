@@ -17,13 +17,14 @@ export class InventoryComponent implements OnInit {
   showStock: boolean = false
   showNewItem: boolean = true
   searchForm
-  stock: any;
+  
 
   constructor(private inventoryService: InventoryService, private formBuilder: FormBuilder) { }
   message = {
     name: String,
     id: String
   }
+  stock: [];
 
   async ngOnInit(): Promise<any> {
     this.searchNameForm = new FormGroup({
@@ -36,15 +37,19 @@ export class InventoryComponent implements OnInit {
     this.message.id = item._id
     this.message.name = item.name
     this.showStock = false
+    this.showNewItem = false
     this.showMe = true
   }
   toggleStock(item) {
     this.getStockID(item._id)
     this.showMe = false
+    this.showNewItem = false
     this.showStock = true
   }
   toggleNewItem(){
-    this.showNewItem != this.showNewItem
+    this.showMe = false
+    this.showStock = false
+    this.showNewItem = !this.showNewItem
   }
   toggleNewBrand(){
 
