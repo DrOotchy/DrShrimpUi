@@ -67,7 +67,10 @@ export class InventoryComponent implements OnInit {
   }
   getStockID(id){
     return this.inventoryService.getInventoryInID(id)
-    .subscribe(data => this.stock = data)
+    .subscribe(data => {
+      console.log(data)
+      this.stock = data
+    })
   }
 
   getALLCategories() {

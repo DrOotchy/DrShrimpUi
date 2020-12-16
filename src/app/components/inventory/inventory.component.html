@@ -54,10 +54,18 @@
                 </div>
                 <br />
                 <div *ngIf="showStock">
-                    <p>Stock Available</p>
-                    <ul class="list-group" *ngFor="let item of stock; index as i">
-                        <p class="list-group-item">{{i}} - {{item.amount_in}} - {{item.date}}</p>
-                    </ul>
+                    <h4>{{stock[0].itemID.name}} Purchases  </h4>
+                    <table class="table table-warning">
+                        <tbody>
+                            <tr *ngFor="let item of stock; index as i">
+                                <td>{{item.amount_in}} {{item.itemID.unit}}</td>
+                                <td>{{item.pricePerUnit}}</td>
+                                <td>{{item.price}}</td>
+                                <td>{{item.supplier.name}}</td>
+                                
+                                <td>{{item.date | date: 'dd/MM/yyyy'}}</td>
+                            </tr>
+                    </table>
                 </div>
                 <br />
                 <div *ngIf="showNewItem">
