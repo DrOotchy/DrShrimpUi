@@ -25,7 +25,8 @@ export class InventoryComponent implements OnInit {
     id: String
   }
   stock: [];
-
+  itemTotal;
+  amountIN;
   async ngOnInit(): Promise<any> {
     this.searchNameForm = new FormGroup({
       name: new FormControl('')
@@ -69,7 +70,9 @@ export class InventoryComponent implements OnInit {
     return this.inventoryService.getInventoryInID(id)
     .subscribe(data => {
       console.log(data)
-      this.stock = data
+      this.stock = data.fullSchema;
+      this.itemTotal = data.total
+      this.amountIN = data.amount
     })
   }
 

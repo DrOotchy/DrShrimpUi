@@ -8,23 +8,46 @@ import { InventoryService } from '../../../services/inventory.service';
   styleUrls: ['./list-inventory.component.css']
 })
 export class ListInventoryComponent implements OnInit {
-  searchForm
+  searchNameForm
   public allInvent = []
   view
-  constructor(private inventoryService: InventoryService,private formBuilder: FormBuilder) { }
+  grandTotal
+  constructor(private inventoryService: InventoryService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.searchForm = new FormGroup({
+    this.getAllNCount()
+    this.searchNameForm = new FormGroup({
       name: new FormControl('')
     })
-    this.getALLCategories()
+    this.getAllInventoryItems()
   }
-  getALLCategories(){
+
+  getAllInventoryItems() {
     return this.inventoryService.getAllInventoryItems()
-    .subscribe(data => this.allInvent = data);
+      .subscribe(data => this.allInvent = data);
   }
-  search() {
-    return this.inventoryService.searchName(this.searchForm.value)
+
+  getAllNCount() {
+    return this.inventoryService.getAllInventoryIn()
+      .subscribe(data => {
+
+        this.view = data.fullSchema
+        this.grandTotal = data.total
+
+
+      })
+  }
+  getitemTotal(id) {
+    let total = 0
+    let itemprice = this.view.filter(r => r.itemID._id === id);
+    for (let i = 0; i < itemprice.length; i++) {
+      total = total+ itemprice[i].price;
+    }
+    console.log(total)
+    return total
+  }
+  searchName() {
+    return this.inventoryService.searchName(this.searchNameForm.value)
       .subscribe(data => this.view = data);
   }
 }

@@ -55,12 +55,14 @@
                 <br />
                 <div *ngIf="showStock">
                     <h4>{{stock[0].itemID.name}} Purchases  </h4>
+                    <p>Total : {{itemTotal}} </p>
+                    <p> amount IN : {{amountIN}} {{stock[0].itemID.unit}} </p>
                     <table class="table table-warning">
                         <tbody>
                             <tr *ngFor="let item of stock; index as i">
                                 <td>{{item.amount_in}} {{item.itemID.unit}}</td>
-                                <td>{{item.pricePerUnit}}</td>
-                                <td>{{item.price}}</td>
+                                <td>{{item.pricePerUnit}} LE</td>
+                                <td>{{item.price}} LE</td>
                                 <td>{{item.supplier.name}}</td>
                                 
                                 <td>{{item.date | date: 'dd/MM/yyyy'}}</td>
