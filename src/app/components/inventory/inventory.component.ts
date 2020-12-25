@@ -16,6 +16,7 @@ export class InventoryComponent implements OnInit {
   showMe: boolean = false
   showStock: boolean = false
   showNewItem: boolean = true
+  showNewBrand: boolean = false
   searchForm
   
 
@@ -53,7 +54,10 @@ export class InventoryComponent implements OnInit {
     this.showNewItem = !this.showNewItem
   }
   toggleNewBrand(){
-
+    this.showMe = false
+    this.showStock = false
+    this.showNewItem = false
+    this.showNewBrand = true
   }
   async getALLItems() {
     return this.inventoryService.getAllInventoryItems()

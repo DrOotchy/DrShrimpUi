@@ -4,10 +4,12 @@
         <div class="row">
             <div class="column side menu">
                 <ul class="list-group" *ngFor="let item of cat; index as i">
-                    <button class="btn btn-warning block list-group-item float-left" (click)="getView(item._id)">{{item.name}}</button>
+                    <button class="btn btn-warning block list-group-item float-left"
+                        (click)="getView(item._id)">{{item.name}}</button>
                 </ul>
-                <br/>
-                <button class="btn btn-secondary block2 float-left" [routerLink]="['/listInventory']">List Items</button>
+                <br />
+                <button class="btn btn-secondary block2 float-left" [routerLink]="['/listInventory']">List
+                    Items</button>
                 <button class="btn btn-secondary block2 float-left" (click)=toggleNewItem()>New Item</button>
 
                 <button class="btn btn-secondary block2 float-left" (click)=toggleNewBrand()>New Brand</button>
@@ -17,7 +19,8 @@
             <div class="column middle">
                 <form [formGroup]="searchNameForm" (ngSubmit)="searchName()" class="form-group has-search">
                     <span class="fa fa-search form-control-feedback"></span>
-                    <input type="search" onkeypress="searchName($event)" formControlName="name" id="defaultRegisterFormName" class="form-control" placeholder="search Name">
+                    <input type="search" onkeypress="searchName($event)" formControlName="name"
+                        id="defaultRegisterFormName" class="form-control" placeholder="search Name">
 
                 </form>
 
@@ -52,9 +55,9 @@
                 <div *ngIf="showMe">
                     <app-inv-in [childMessage]="message"></app-inv-in>
                 </div>
-                <br />
+
                 <div *ngIf="showStock">
-                    <h4>{{stock[0].itemID.name}} Purchases  </h4>
+                    <h4>{{stock[0].itemID.name}} Purchases </h4>
                     <p>Total : {{itemTotal}} </p>
                     <p> amount IN : {{amountIN}} {{stock[0].itemID.unit}} </p>
                     <table class="table table-warning">
@@ -64,16 +67,18 @@
                                 <td>{{item.pricePerUnit}} LE</td>
                                 <td>{{item.price}} LE</td>
                                 <td>{{item.supplier.name}}</td>
-                                
+
                                 <td>{{item.date | date: 'dd/MM/yyyy'}}</td>
                             </tr>
                     </table>
                 </div>
-                <br />
+
                 <div *ngIf="showNewItem">
                     <app-new-inventory></app-new-inventory>
                 </div>
-
+                <div *ngIf="showNewBrand">
+                    <app-new-brand></app-new-brand>
+                </div>
             </div>
         </div>
     </div>

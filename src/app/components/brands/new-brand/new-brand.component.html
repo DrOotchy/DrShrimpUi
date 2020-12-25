@@ -1,0 +1,23 @@
+<form [formGroup]="newBrandForm" (ngSubmit)="onSubmit()" class="text-center border border-light p-5">
+
+    <p class="h4 mb-4">New Brand</p>
+
+    <div class="form-row mb-4">
+        <div class="col">
+            <input type="text" formControlName="name" id="defaultRegisterFormName" class="form-control" placeholder="Name">
+            <input type="text" formControlName="altName" id="defaultRegisterFormAltName" class="form-control" placeholder="Alt Name">
+        
+            <select class="form-control" formControlName="category">
+                <option *ngFor="let m of suppliers" [value]="m._id">{{m.name}}</option>
+                </select>
+              
+        </div>
+    </div>
+
+
+    <button class="btn btn-info my-4 btn-block" type="submit">Add Brand</button>
+    <button class="btn btn-info my-4 btn-block" [routerLink]="['/brands']">Cancel</button>
+
+    <hr>
+
+</form>

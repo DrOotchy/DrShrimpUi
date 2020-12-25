@@ -1,0 +1,27 @@
+<div class="jumbotron">
+    <div>
+        <table class="table table-primary">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">name</th>
+                    <th scope="col">ALT</th>
+                    <th scope="col">supplier</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let brand of brands; index as i">
+                    <td>{{i + 1}}</td>
+                    <td> {{brand.name}} </td>
+                    <td> {{brand.altName}} </td>
+                    <td> {{brand.supplier.name}} </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+
+</div>

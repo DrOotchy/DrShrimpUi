@@ -47,6 +47,9 @@ import { InvINComponent } from './components/inventory/inv-in/inv-in.component';
 import { InvOUTComponent } from './components/inventory/inv-out/inv-out.component';
 import { PurchaseInvoiceComponent } from './components/inventory/purchase-invoice/purchase-invoice.component';
 import { SingleItemStockViewComponent } from './components/inventory/stock/single-item-stock-view/single-item-stock-view.component';
+import { BrandsComponent } from './components/brands/brands.component';
+import { NewBrandComponent } from './components/brands/new-brand/new-brand.component';
+import { BrandDetailsComponent } from './components/brands/brand-details/brand-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -84,7 +87,10 @@ import { SingleItemStockViewComponent } from './components/inventory/stock/singl
     InvINComponent,
     InvOUTComponent,
     PurchaseInvoiceComponent,
-    SingleItemStockViewComponent
+    SingleItemStockViewComponent,
+    BrandsComponent,
+    NewBrandComponent,
+    BrandDetailsComponent
   ],
   imports: [
     BrowserModule,
