@@ -29,6 +29,6 @@ export class NewBrandComponent implements OnInit {
 
   onSubmit(){
     return this.brandService.addNewBrand(this.newBrandForm.value)
-    .subscribe(data => alert(data + ' ADDED Succesfully '))
+    .subscribe(data => alert(data.brand.name + ' ADDED Succesfully '))
   }
 }
