@@ -40,17 +40,20 @@ export class InventoryComponent implements OnInit {
     this.message.name = item.name
     this.showStock = false
     this.showNewItem = false
+    this.showNewBrand = false
     this.showMe = true
   }
   toggleStock(item) {
     this.getStockID(item._id)
     this.showMe = false
     this.showNewItem = false
+    this.showNewBrand = false
     this.showStock = true
   }
   toggleNewItem(){
     this.showMe = false
     this.showStock = false
+    this.showNewBrand = false
     this.showNewItem = !this.showNewItem
   }
   toggleNewBrand(){

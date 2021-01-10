@@ -45,17 +45,16 @@
                                 <th>Action</th>
                             </tr>
                             <tr *ngFor="let x of invoiceAddItems.get('items').controls;let i=index;trackBy:track" [formGroupName]="i">
-                                <td><input class="form-control" formControlName="name" placeholder="Item name"></td>
+                                <th><input class="lable" formControlName="name" placeholder="Item name"></th>
                                 <td><input class="form-control" formControlName="specialRrequest"></td>
                                 <td><input type="number" class="form-control" formControlName="quantity" value=1></td>
                                 <td><input class="form-control" formControlName="price"></td>
-                                <td><input class="form-control" formControlName="itemTotal"></td>
+                                <td><input class="form-control" formControlName="itemTotal"> {{x.price}} * {{x.quantity}} </td>
                                 <td><button class="btn btn-secondary" (click)="deleteItem(i)">Delete</button></td>
                             </tr>
                         </table>
                     </div>
                     <button class="btn btn-primary" (click)="getMyData()">Refresh</button>
-                    <button class="btn btn-secondary" (click)="add()">Add New Item</button>
                     <button class="btn btn-primary" (click)="submit()">Submit</button>
                 </form>
             </div>
