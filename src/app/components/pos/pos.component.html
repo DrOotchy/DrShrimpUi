@@ -1,65 +1,59 @@
-<div class="jumbotron">
-    <div class="row">
-        <button class="btn btn-secondary float-left" [routerLink]="['/newcustomer']">New customer</button>
-    </div>
-    <div class="row">
-        <div class="column side menu">
+<main>
+    <section class="glass">
 
-            <br />
-            <ul class="list-group" *ngFor="let item of menuCategories; index as i">
-                <button class="block list-group-item" (click)="getMenuItems(item._id)">{{item.name}}</button>
-                <br>
+        <div class="dashboard">
+
+            <ul class="links" *ngFor="let item of menuCategories; index as i">
+                <div class="link" (click)="getMenuItems(item._id)">
+                    <h2>{{item.name}}</h2>
+                </div>
             </ul>
 
         </div>
-        <div class="column middle">
-            <div class="card-deck no-gutters">
+        <div class="games">
 
-                <div class="col-12 col-sm-6 col-md-6 col-lg-3" *ngFor="let menuItem of menuItems">
-                    <div class="card h-60 mb-4">
-                        <div class="card-header">
-                            <h5 class="card-title m-0 p-0 font-weight-bolder text-secondary"> {{menuItem.name}}
-                            </h5>
-                        </div>
-                        <div class="card-body text-left">
-                            <p class="card-text">{{menuItem.description}}</p>
-                            <p class="card-text">{{menuItem.altDesc}}</p>
-                        </div>
+            <div class="cards">
 
-                        <button (click)="addToInvoice(menuItem)" class="card-footer btn btn-warning"><span class="font-lead-base font-weight-bold text-muted">{{menuItem.price}} LE.</span></button>
+                <div *ngFor="let menuItem of menuItems" (click)="addToInvoice(menuItem)" class="card">
+
+                    <div class="card-info">
+                        <h2>{{menuItem.name}}</h2>
+                        <p>{{menuItem.description}}</p>
+                        <p>{{menuItem.altDesc}}</p>
+                        <div class="progress"></div>
                     </div>
+
+                    <h2 class="percentage">{{menuItem.price}} LE.</h2>
                 </div>
+
             </div>
         </div>
-        <div class="column side invoice">
-            <div>
-                <form class="form-group" [formGroup]="invoiceAddItems">
-                    <div formArrayName="items">
-                        <table class="table table-stripped">
-                            <tr>
-                                <th>Item Name</th>
-                                <th>Specila Request</th>
-                                <th>QTTY</th>
-                                <th>Price</th>
-                                <th>Total</th>
-                                <th>Action</th>
-                            </tr>
-                            <tr *ngFor="let x of invoiceAddItems.get('items').controls;let i=index;trackBy:track" [formGroupName]="i">
-                                <th><input class="lable" formControlName="name" placeholder="Item name"></th>
-                                <td><input class="form-control" formControlName="specialRrequest"></td>
-                                <td><input type="number" class="form-control" formControlName="quantity" value=1></td>
-                                <td><input class="form-control" formControlName="price"></td>
-                                <td><input class="form-control" formControlName="itemTotal"> {{x.price}} * {{x.quantity}} </td>
-                                <td><button class="btn btn-secondary" (click)="deleteItem(i)">Delete</button></td>
-                            </tr>
-                        </table>
-                    </div>
-                    <button class="btn btn-primary" (click)="getMyData()">Refresh</button>
-                    <button class="btn btn-primary" (click)="submit()">Submit</button>
-                </form>
-            </div>
-
+        <div class="invoice">
+            <form class="form-group" [formGroup]="invoiceAddItems">
+                <div formArrayName="items">
+                    <table class="table table-stripped">
+                        <tr>
+                            <th>Item Name</th>
+                            <th>Specila Request</th>
+                            <th>QTTY</th>
+                            <th>Price</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+                        <tr *ngFor="let x of invoiceAddItems.get('items').controls;let i=index;trackBy:track" [formGroupName]="i">
+                            <th><input class="lable" formControlName="name" placeholder="Item name"></th>
+                            <td><input class="form-control" formControlName="specialRrequest"></td>
+                            <td><input type="number" class="form-control" formControlName="quantity" value=1></td>
+                            <td><input class="form-control" formControlName="price"></td>
+                            <td><input class="form-control" formControlName="itemTotal"> {{x.price}} * {{x.quantity}} </td>
+                            <td><button class="btn btn-secondary" (click)="deleteItem(i)">Delete</button></td>
+                        </tr>
+                    </table>
+                </div>
+                <button class="btn btn-primary" (click)="getMyData()">Refresh</button>
+                <button class="btn btn-primary" (click)="submit()">Submit</button>
+            </form>
         </div>
-    </div>
 
-</div>
+    </section>
+</main>

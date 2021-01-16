@@ -9,7 +9,7 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
   styleUrls: ['./pos.component.css']
 })
 export class PosComponent implements OnInit {
-  public posView;
+  public menuID= '5f9618333f65412aa0ffe6c9';
   public menuCategories = [];
   public menuItems = [];
   public invoicetemp = [];
@@ -28,7 +28,7 @@ export class PosComponent implements OnInit {
   ngOnInit(): void {
     this.getMenuCategories();
     // this.getPOSview();
-    this.getMenuview();
+    this.getMenuview()
     this.invoiceAddItems = new FormGroup(
       {
         invoiceNumber: new FormControl(2, [Validators.required]),
@@ -41,10 +41,7 @@ export class PosComponent implements OnInit {
     return this.menuService.getCategories()
       .subscribe(data => this.menuCategories = data);
   }
-  getPOSview() {
-    return this.menuService.getPOSview()
-      .subscribe(data => this.posView = data);
-  }
+ 
   getMenuview() {
     return this.menuService.getMenu()
       .subscribe(data => this.menuView = data);

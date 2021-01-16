@@ -24,6 +24,7 @@ import { InvOUTComponent } from './components/inventory/inv-out/inv-out.componen
 import { SingleItemStockViewComponent } from './components/inventory/stock/single-item-stock-view/single-item-stock-view.component';
 import { BrandsComponent } from './components/brands/brands.component';
 import { NewBrandComponent } from './components/brands/new-brand/new-brand.component';
+import { AdminComponent } from './components/admin/admin.component';
 const routes: Routes = [
   {
     path: 'login',
@@ -147,6 +148,11 @@ const routes: Routes = [
   {
     path: 'newBrand',
     component: NewBrandComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'admin',
+    component: AdminComponent,
     canActivate: [AuthGuard]
   }
 ];

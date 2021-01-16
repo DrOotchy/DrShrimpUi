@@ -50,6 +50,7 @@ import { SingleItemStockViewComponent } from './components/inventory/stock/singl
 import { BrandsComponent } from './components/brands/brands.component';
 import { NewBrandComponent } from './components/brands/new-brand/new-brand.component';
 import { BrandDetailsComponent } from './components/brands/brand-details/brand-details.component';
+import { AdminComponent } from './components/admin/admin.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -90,7 +91,8 @@ import { BrandDetailsComponent } from './components/brands/brand-details/brand-d
     SingleItemStockViewComponent,
     BrandsComponent,
     NewBrandComponent,
-    BrandDetailsComponent
+    BrandDetailsComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
