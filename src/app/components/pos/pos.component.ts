@@ -9,10 +9,10 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
   styleUrls: ['./pos.component.css']
 })
 export class PosComponent implements OnInit {
-  public menuID= '5f9618333f65412aa0ffe6c9';
   public menuCategories = [];
   public menuItems = [];
-  public category : String;
+  public category: String;
+  public tempInvoiceID;
   public invoicetemp = [];
   public menuView;
   public invoiceItem = {
@@ -30,23 +30,25 @@ export class PosComponent implements OnInit {
     this.getMenuCategories();
     // this.getPOSview();
     this.getMenuview()
+    this.getNewTempInvoiceID()
     this.invoiceAddItems = new FormGroup(
       {
         invoiceNumber: new FormControl(2, [Validators.required]),
         items: new FormArray([])
       }
     )
-    
+
+  }
+  getNewTempInvoiceID() {
+    return this.posServices.openNewInoice()
+      .subscribe(data => { this.tempInvoiceID = data._id, console.log('temp invoice id :', this.tempInvoiceID) })
   }
   getMenuCategories() {
     return this.menuService.getCategories()
       .subscribe(data => this.menuCategories = data);
   }
-  listCategories(newItem: string){
-    console.log(' pos component id : ' + newItem)
+  listCategories(newItem: string) {
     this.category = newItem
-    console.log(' this category : ' + this.category)
-
   }
   getMenuview() {
     return this.menuService.getMenu()
@@ -60,7 +62,7 @@ export class PosComponent implements OnInit {
   addToInvoice(item) {
     this.invoicetemp.push(item);
     this.getMyData();
-    }
+  }
   payInvoice() {
     console.log(this.invoicetemp);
   }

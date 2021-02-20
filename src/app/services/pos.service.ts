@@ -5,11 +5,12 @@ import { map } from 'rxjs/operators';
 
 import { CartItem } from '../interfaces/cart-item';
 import { Product } from '../interfaces/product';
+import { identifierModuleUrl } from '@angular/compiler';
 @Injectable({
   providedIn: 'root'
 })
 export class PosService {
-  
+
 
   constructor(private http: HttpClient) { }
   getAllInvoices(): Observable<any[]> {
@@ -23,7 +24,7 @@ export class PosService {
   }
   getCartItems(id): Observable<CartItem[]> {
     //TODO: Mapping the obtained result to our CartItem props. (pipe() and map())
-    return this.http.get<CartItem[]>(`api/invoice/items/` + id).pipe(
+    return this.http.get<CartItem[]>(`api/invoice/temp/items/` + id).pipe(
       map((result: any[]) => {
         let cartItems: CartItem[] = [];
 
@@ -48,13 +49,16 @@ export class PosService {
     );
   }
 
-  addProductToCart(product: Product): Observable<any> {
-    return this.http.post('api/menu/all', { product });
+  addProductToCart(id, product: Product): Observable<any> {
+    return this.http.post(`api/invoice/temp/addItem/` + id, { product });
   }
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>('api/menu/all');
   }
   openNewInoice() {
-    
+    return this.http.get<any[]>(`api/invoice/temp/new`);
+  }
+  getTempInvoice(id){
+    return this.http.get(`api/invoice/temp/`+ id )
   }
 }

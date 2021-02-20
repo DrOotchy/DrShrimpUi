@@ -4,7 +4,7 @@
  <div class="card-header">{{productItem.name}} -- {{productItem.altName}}</div>
     <div class="card-body">
       <p class="card-text">
-        <strong>{{ productItem.price | currency:'EGP' }}</strong>
+        <strong>{{ productItem.price  | currency:'EGP' }}</strong>
         <i *ngIf="addedToWishlist" class="fas fa-heart float-right" (click)="handleRemoveFromWishlist()"></i>
         <i *ngIf="!addedToWishlist" class="far fa-heart float-right" (click)="handleAddToWishlist()"></i>
       </p>

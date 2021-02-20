@@ -6,7 +6,7 @@
         </div>
         <div class="games">
             <h3>Products</h3>
-            <app-product-list [menuCategory] = "category"></app-product-list>
+            <app-product-list [invId]= "tempInvoiceID" [menuCategory] = "category"></app-product-list>
 
         </div>
 
@@ -23,7 +23,7 @@
                 </div> -->
 
         <div class="invoice">
-            <app-cart></app-cart>
+            <app-cart [invoiceID]= "tempInvoiceID"></app-cart>
 
             <!-- <form class="form-group" [formGroup]="invoiceAddItems">
                 <div formArrayName="items">

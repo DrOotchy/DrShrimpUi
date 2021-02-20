@@ -12,6 +12,7 @@ export class ProductItemComponent implements OnInit {
 
 
   @Input() productItem: Product;
+  @Input() invId: String;
 
   @Input() addedToWishlist: boolean;
 
@@ -25,7 +26,7 @@ export class ProductItemComponent implements OnInit {
   }
 
   handleAddToCart() {
-    this.posService.addProductToCart(this.productItem).subscribe(() => {
+    this.posService.addProductToCart(this.invId, this.productItem).subscribe(() => {
       this.msg.sendMsg(this.productItem)
     })
   }
