@@ -51,6 +51,11 @@ import { BrandsComponent } from './components/brands/brands.component';
 import { NewBrandComponent } from './components/brands/new-brand/new-brand.component';
 import { BrandDetailsComponent } from './components/brands/brand-details/brand-details.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { CartComponent } from './components/pos/cart/cart.component';
+import { CartItemComponent } from './components/pos/cart/cart-item/cart-item.component';
+import { ProductListComponent } from './components/pos/product-list/product-list.component';
+import { ProductItemComponent } from './components/pos/product-list/product-item/product-item.component';
+import { MenuCategoriesComponent } from './components/pos/product-list/menu-categories/menu-categories.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -92,7 +97,13 @@ import { AdminComponent } from './components/admin/admin.component';
     BrandsComponent,
     NewBrandComponent,
     BrandDetailsComponent,
-    AdminComponent
+    AdminComponent,
+    CartComponent,
+    CartItemComponent,
+    ProductListComponent,
+    ProductItemComponent,
+    MenuCategoriesComponent,
+    
   ],
   imports: [
     BrowserModule,

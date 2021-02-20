@@ -1,20 +1,16 @@
 <main>
     <section class="glass">
-
         <div class="dashboard">
-
-            <ul class="links" *ngFor="let item of menuCategories; index as i">
-                <div class="link" (click)="getMenuItems(item._id)">
-                    <h2>{{item.name}}</h2>
-                </div>
-            </ul>
+            <app-menu-categories (newItemEvent)="listCategories($event)" ></app-menu-categories>
 
         </div>
         <div class="games">
+            <h3>Products</h3>
+            <app-product-list [menuCategory] = "category"></app-product-list>
 
-            <div class="cards">
+        </div>
 
-                <div *ngFor="let menuItem of menuItems" (click)="addToInvoice(menuItem)" class="card">
+        <!-- <div *ngFor="let menuItem of menuItems" (click)="addToInvoice(menuItem)" class="card">
 
                     <div class="card-info">
                         <h2>{{menuItem.name}}</h2>
@@ -24,17 +20,17 @@
                     </div>
 
                     <h2 class="percentage">{{menuItem.price}} LE.</h2>
-                </div>
+                </div> -->
 
-            </div>
-        </div>
         <div class="invoice">
-            <form class="form-group" [formGroup]="invoiceAddItems">
+            <app-cart></app-cart>
+
+            <!-- <form class="form-group" [formGroup]="invoiceAddItems">
                 <div formArrayName="items">
                     <table class="table table-stripped">
                         <tr>
                             <th>Item Name</th>
-                            <th>Specila Request</th>
+                            <th>Special Request</th>
                             <th>QTTY</th>
                             <th>Price</th>
                             <th>Total</th>
@@ -52,7 +48,7 @@
                 </div>
                 <button class="btn btn-primary" (click)="getMyData()">Refresh</button>
                 <button class="btn btn-primary" (click)="submit()">Submit</button>
-            </form>
+            </form> -->
         </div>
 
     </section>

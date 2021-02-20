@@ -12,6 +12,7 @@ export class PosComponent implements OnInit {
   public menuID= '5f9618333f65412aa0ffe6c9';
   public menuCategories = [];
   public menuItems = [];
+  public category : String;
   public invoicetemp = [];
   public menuView;
   public invoiceItem = {
@@ -41,7 +42,12 @@ export class PosComponent implements OnInit {
     return this.menuService.getCategories()
       .subscribe(data => this.menuCategories = data);
   }
- 
+  listCategories(newItem: string){
+    console.log(' pos component id : ' + newItem)
+    this.category = newItem
+    console.log(' this category : ' + this.category)
+
+  }
   getMenuview() {
     return this.menuService.getMenu()
       .subscribe(data => this.menuView = data);
