@@ -23,6 +23,8 @@ export class ProductItemComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log(this.invId)
+
   }
 
   handleAddToCart() {
@@ -32,13 +34,13 @@ export class ProductItemComponent implements OnInit {
   }
 
   handleAddToWishlist() {
-    this.wishlistService.addToWishlist(this.productItem.id).subscribe(() => {
+    this.wishlistService.addToWishlist(this.productItem._id).subscribe(() => {
       this.addedToWishlist = true;
     })
   }
 
   handleRemoveFromWishlist() {
-    this.wishlistService.removeFromWishlist(this.productItem.id).subscribe(() => {
+    this.wishlistService.removeFromWishlist(this.productItem._id).subscribe(() => {
       this.addedToWishlist = false;
     })
   }

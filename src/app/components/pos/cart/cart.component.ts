@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MessengerService } from 'src/app/services/messenger.service';
 import { Product } from 'src/app/interfaces/product';
 import { CartItem } from 'src/app/interfaces/cart-item';
@@ -9,7 +9,7 @@ import { PosService } from 'src/app/services/pos.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-
+  @Input() invId:string;
   cartItems = [];
 
   cartTotal = 0
@@ -31,7 +31,7 @@ export class CartComponent implements OnInit {
   }
 
   loadCartItems() {
-    this.posService.getCartItems('2').subscribe((items: CartItem[]) => {
+    this.posService.getCartItems(this.invId).subscribe((items: CartItem[]) => {
       this.cartItems = items;
       this.calcCartTotal();
     })

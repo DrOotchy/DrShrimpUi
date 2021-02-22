@@ -1,5 +1,5 @@
 export class Product {
-  id: number;
+  _id: string;
   name: string;
   altName: string;
   description: string;
@@ -11,7 +11,7 @@ export class Product {
   }
 
   constructor(id, name, altName, description = '', price = 0, menuSection) {
-    this.id = id
+    this._id = id
     this.name = name
     this.altName = altName
     this.description = description

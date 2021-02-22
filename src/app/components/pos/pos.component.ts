@@ -12,7 +12,7 @@ export class PosComponent implements OnInit {
   public menuCategories = [];
   public menuItems = [];
   public category: String;
-  public tempInvoiceID;
+  public tempInvoiceID
   public invoicetemp = [];
   public menuView;
   public invoiceItem = {
@@ -41,7 +41,9 @@ export class PosComponent implements OnInit {
   }
   getNewTempInvoiceID() {
     return this.posServices.openNewInoice()
-      .subscribe(data => { this.tempInvoiceID = data._id, console.log('temp invoice id :', this.tempInvoiceID) })
+      .subscribe(data => {
+        this.tempInvoiceID =  data;
+      })
   }
   getMenuCategories() {
     return this.menuService.getCategories()
