@@ -26,12 +26,14 @@ export class CartComponent implements OnInit {
 
   handleSubscription() {
     this.msg.getMsg().subscribe((product: Product) => {
+      console.log(product)
       this.loadCartItems();
     })
   }
 
   loadCartItems() {
     this.posService.getCartItems(this.invId).subscribe((items: CartItem[]) => {
+      console.log(items);
       this.cartItems = items;
       this.calcCartTotal();
     })

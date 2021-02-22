@@ -30,9 +30,9 @@ export class PosService {
 
         for (let item of result) {
           let productExists = false
-
+          console.log(item)
           for (let i in cartItems) {
-            if (cartItems[i].productId === item.product.id) {
+            if (cartItems[i].productId === item.item._id) {
               cartItems[i].qty++
               productExists = true
               break;
@@ -40,7 +40,7 @@ export class PosService {
           }
 
           if (!productExists) {
-            cartItems.push(new CartItem(item.id, item.product));
+            cartItems.push(new CartItem(id,item._id, item.item.name, item.price));
           }
         }
 
