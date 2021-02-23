@@ -50,4 +50,7 @@ export class ListInventoryComponent implements OnInit {
     return this.inventoryService.searchName(this.searchNameForm.value)
       .subscribe(data => this.view = data);
   }
+  filterdate(){
+    
+  }
 }

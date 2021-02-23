@@ -61,4 +61,7 @@ export class PosService {
   getTempInvoice(id){
     return this.http.get(`api/invoice/temp/`+ id )
   }
+  payTempInvoice(id){
+    return this.http.get(`api/invoice/temp/payInvoice/`+ id)
+  }
 }

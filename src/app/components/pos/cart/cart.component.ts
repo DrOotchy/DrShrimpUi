@@ -45,4 +45,7 @@ export class CartComponent implements OnInit {
       this.cartTotal += (item.qty * item.price)
     })
   }
+  payInvoice(){
+    this.posService.payTempInvoice(this.invId).subscribe(res => alert(res))
+  }
 }

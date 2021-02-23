@@ -45,7 +45,6 @@
                         <td>{{inv.category.name}}</td>
                         <td><button class="btn btn-secondary" (click)=toggleAdd(inv)>Re-Stock</button></td>
                         <td><button class="btn btn-secondary" (click)=toggleStock(inv)>show-Stock</button></td>
-
                     </tr>
             </table>
         </div>
@@ -57,7 +56,7 @@
             <div *ngIf="showStock">
                 <h4>{{stock[0].itemID.name}} Purchases </h4>
                 <p>Total : {{itemTotal}} </p>
-                <p> amount IN : {{amountIN}} {{stock[0].itemID.unit}} </p>
+                <p>amount IN : {{amountIN}} {{stock[0].itemID.unit}} </p>
                 <table class="table table-warning">
                     <tbody>
                         <tr *ngFor="let item of stock; index as i">
@@ -65,7 +64,6 @@
                             <td>{{item.pricePerUnit}} LE</td>
                             <td>{{item.price}} LE</td>
                             <td>{{item.supplier.name}}</td>
-
                             <td>{{item.date | date: 'dd/MM/yyyy'}}</td>
                         </tr>
                 </table>

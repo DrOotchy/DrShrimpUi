@@ -4,6 +4,15 @@
         <div class="row">
             <div class="column side">
                 <h2>Grand Total : {{grandTotal}} </h2>
+                <form class="form-group">
+                    <label>Start Date: </label>
+                    <br/>
+                    <input type="date" onchange="filterdate($event)" >
+                    <br/>
+                    <label>End Date: </label>
+                    <br/>
+                    <input type="date" onchange="filterdate($event)" >
+                </form>
             </div>
             <div class="column middle">
                 <form [formGroup]="searchNameForm" (ngSubmit)="searchName()" class="form-group has-search">
@@ -11,6 +20,7 @@
                     <input type="search" onkeypress="searchName($event)" formControlName="name" id="defaultRegisterFormName" class="form-control" placeholder="search Name">
 
                 </form>
+                
                 <table class="table table-striped">
                     <thead>
                         <tr>

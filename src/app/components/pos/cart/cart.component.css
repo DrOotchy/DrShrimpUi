@@ -1,0 +1,6 @@
+.invoiceContainer{
+    display: flexbox;
+}
+.payBTN{
+    align-self: flex-end
+}
