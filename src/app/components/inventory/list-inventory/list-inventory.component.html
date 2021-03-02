@@ -4,43 +4,72 @@
         <div class="row">
             <div class="column side">
                 <h2>Grand Total : {{grandTotal}} </h2>
-                <form class="form-group">
+                <form [formGroup]="dateFilterForm" (ngSubmit)="filterdate()" class="form-group">
                     <label>Start Date: </label>
-                    <br/>
-                    <input type="date" onchange="filterdate($event)" >
-                    <br/>
+                    <br />
+                    <input type="date" formControlName="startDate" id="defaultStartDate" class="form-control">
+                    <br />
                     <label>End Date: </label>
-                    <br/>
-                    <input type="date" onchange="filterdate($event)" >
+                    <br />
+                    <input type="date" formControlName="endDate" id="defaultEndDate" class="form-control">
+                    <br />
+                    <button class="btn btn-secondary block2 float-left" type="submit">Filter</button>
                 </form>
             </div>
             <div class="column middle">
-                <form [formGroup]="searchNameForm" (ngSubmit)="searchName()" class="form-group has-search">
-                    <span class="fa fa-search form-control-feedback"></span>
-                    <input type="search" onkeypress="searchName($event)" formControlName="name" id="defaultRegisterFormName" class="form-control" placeholder="search Name">
+                <div *ngIf="showALL">
+                    <form [formGroup]="searchNameForm" (ngSubmit)="searchName()" class="form-group has-search">
+                        <span class="fa fa-search form-control-feedback"></span>
+                        <input type="search" onkeypress="searchName($event)" formControlName="name"
+                            id="defaultRegisterFormName" class="form-control" placeholder="search Name">
 
-                </form>
-                
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Unit</th>
-                            <th scope="col">purchases</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let inv of allInvent; index as i">
-                            <td>{{ i + 1}}</td>
-                            <td>{{inv.name}}</td>
-                            <td>{{inv.unit}}</td>
-                            <td><button class="btn btn-secondary" (click)=getitemTotal(inv._id)>purchases</button></td>
-                        </tr>
-                </table>
+                    </form>
+
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Unit</th>
+                                <th scope="col">purchases</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let inv of allInvent; index as i">
+                                <td>{{ i + 1}}</td>
+                                <td>{{inv.name}}</td>
+                                <td>{{inv.unit}}</td>
+                                <td><button class="btn btn-secondary" (click)=getitemTotal(inv._id)>purchases</button>
+                                </td>
+                            </tr>
+                    </table>
+                </div>
+                <div *ngIf="showFilter">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">amountIN</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">purchases</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let inv of view; index as i">
+                                <td>{{ i + 1}}</td>
+                                <td>{{inv.itemID.name}}</td>
+                                <td>{{inv.amount_in}}</td>
+                                <td>{{inv.price}}</td>
+                                <td>{{inv.date | date: 'dd/MM/yyyy'}}</td>
+                                <td><button class="btn btn-secondary" (click)=getitemTotal(inv._id)>purchases</button>
+                                </td>
+                            </tr>
+                    </table>
+                </div>
             </div>
             <div class="column side">
-                <app-new-inventory></app-new-inventory>
             </div>
         </div>
     </div>

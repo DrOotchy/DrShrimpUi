@@ -12,6 +12,11 @@ export class ListInventoryComponent implements OnInit {
   public allInvent = []
   view
   grandTotal
+  dateFilterForm
+  dateFilterResult
+
+  showFilter= false
+  showALL =true
   constructor(private inventoryService: InventoryService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
@@ -20,6 +25,10 @@ export class ListInventoryComponent implements OnInit {
       name: new FormControl('')
     })
     this.getAllInventoryItems()
+    this.dateFilterForm = new FormGroup({
+      startDate: new FormControl(''),
+      endDate: new FormControl('')
+    })
   }
 
   getAllInventoryItems() {
@@ -37,20 +46,33 @@ export class ListInventoryComponent implements OnInit {
 
       })
   }
+
   getitemTotal(id) {
     let total = 0
     let itemprice = this.view.filter(r => r.itemID._id === id);
     for (let i = 0; i < itemprice.length; i++) {
       total = total+ itemprice[i].price;
     }
-    console.log(total)
     return total
   }
+
   searchName() {
     return this.inventoryService.searchName(this.searchNameForm.value)
       .subscribe(data => this.view = data);
   }
-  filterdate(){
-    
+  
+  filterdate() {
+    return this.inventoryService.getInventoryByDate(this.dateFilterForm.value)
+    .subscribe(data => {
+      this.dateFilterResult = data
+    this.view = this.dateFilterResult
+    let filterTotal = 0
+    for (let i = 0; i < data.length; i++) {
+      filterTotal = filterTotal+ data[i].price;
+    }
+    this.showALL=false
+    this.showFilter=true
+    this.grandTotal = filterTotal
+    })
   }
 }

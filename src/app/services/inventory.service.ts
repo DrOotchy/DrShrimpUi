@@ -40,4 +40,7 @@ export class InventoryService {
   getAllInventoryIn(): Observable<any> {
     return this.http.get<any[]>(`api/inventory/in/allIn`)
   }
+  getInventoryByDate(data): Observable<any> {
+    return this.http.post(`api/inventory/filter/date`, data)
+  }
 }
