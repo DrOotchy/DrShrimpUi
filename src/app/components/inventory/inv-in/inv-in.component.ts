@@ -33,8 +33,11 @@ export class InvINComponent implements OnInit {
       console.log(this.childMessage.id)
       console.log(this.invINForm)
       this.inventoryService.inventoryIn(this.invINForm.value)
-      .subscribe(res => alert(res.invIN.itemID + ' ' + res.message))
-      this.ngOnInit()
+      .subscribe(res => {
+        alert(res.invIN.itemID + ' ' + res.message)
+        this.ngOnInit()
+      })
+      
   }
   getSupplier() {
     this.supplierService.getAllSuppliers()
