@@ -1,0 +1,15 @@
+<div>
+    <div class="row">
+        <div class="column side menu">
+
+        </div>
+        <div class="column middle" >
+            <div class="table" *ngFor="let item of tempInvoices; index as i">
+                <app-list-temp [item]="item"></app-list-temp>
+            </div>
+                 
+            
+           
+        </div>
+    </div>
+</div>

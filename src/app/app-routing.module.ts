@@ -25,6 +25,7 @@ import { SingleItemStockViewComponent } from './components/inventory/stock/singl
 import { BrandsComponent } from './components/brands/brands.component';
 import { NewBrandComponent } from './components/brands/new-brand/new-brand.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { TempInvoicesComponent } from './components/pos/temp-invoices/temp-invoices.component';
 const routes: Routes = [
   {
     path: 'login',
@@ -153,6 +154,11 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'tempInovices',
+    component: TempInvoicesComponent,
     canActivate: [AuthGuard]
   }
 ];

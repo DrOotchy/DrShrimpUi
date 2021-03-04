@@ -1,0 +1,12 @@
+<tr class="link">
+    <td style="width: 25%;">
+        <h5>{{item.invoiceNumber}} -- {{item.orderDateTime | date: 'dd/MM/yyyy'}}</h5>
+    </td>
+    <td style="width: 60%;">
+        <ul *ngFor="let product of item.Items; index as i">
+            <h5> {{product.item.name}}  --  {{product.price}} </h5>
+        </ul>
+    </td>
+    <td style="width: 15%;"><button class="btn btn-block btn-warning" (click)="closeInvoice()">Delete</button></td>
+</tr>
+

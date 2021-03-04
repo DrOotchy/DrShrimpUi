@@ -22,7 +22,6 @@ export class MenuCategoriesComponent implements OnInit {
       .subscribe(data => this.menuCategories = data);
   }
   showCategory(value: string) {
-    console.log('menu category id : '+ value)
     this.newItemEvent.emit(value);
   }
 }

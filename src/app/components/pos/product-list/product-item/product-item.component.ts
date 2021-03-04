@@ -23,7 +23,6 @@ export class ProductItemComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(this.invId)
 
   }
 

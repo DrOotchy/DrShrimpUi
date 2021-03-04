@@ -13,6 +13,10 @@ export class HomeComponent implements OnInit {
 {
   name: 'Delivery',
   link: '/Delivery'
+},
+{
+  name: 'Open Invoices',
+  link: '/tempInovices'
 }
 ];
   constructor() { }

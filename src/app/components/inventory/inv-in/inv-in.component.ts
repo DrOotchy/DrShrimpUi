@@ -15,7 +15,12 @@ export class InvINComponent implements OnInit {
 
   public invINForm;
   public allSupliers
-  constructor(private formBuilder: FormBuilder, private inventoryService: InventoryService, private route: ActivatedRoute,private supplierService: SuppliersService) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private inventoryService: InventoryService,
+    private route: ActivatedRoute,
+    private supplierService: SuppliersService
+    ) { }
   itemID = this.route.snapshot.params.id;
   ngOnInit(): void {
     this.getSupplier();

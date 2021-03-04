@@ -28,22 +28,19 @@ export class PosService {
       map((result: any[]) => {
         let cartItems: CartItem[] = [];
 
-        for (let item of result) {
+        for (let cartItem of result) {
           let productExists = false
-          console.log(item)
           for (let i in cartItems) {
-            if (cartItems[i].productId === item.item._id) {
+            if (cartItems[i].productId === cartItem.item._id) {
               cartItems[i].qty++
               productExists = true
               break;
             }
           }
-
           if (!productExists) {
-            cartItems.push(new CartItem(id,item._id, item.item.name, item.price));
+            cartItems.push(new CartItem(id, cartItem.item._id, cartItem.item.name, cartItem.price));
           }
         }
-
         return cartItems;
       })
     );
@@ -58,10 +55,20 @@ export class PosService {
   openNewInoice() {
     return this.http.get<any[]>(`api/invoice/temp/new`);
   }
-  getTempInvoice(id){
-    return this.http.get(`api/invoice/temp/`+ id )
+  getTempInvoice(id) {
+    return this.http.get(`api/invoice/temp/` + id)
   }
-  payTempInvoice(id){
-    return this.http.get(`api/invoice/temp/payInvoice/`+ id)
+  payTempInvoice(id) {
+    return this.http.get(`api/invoice/temp/payInvoice/` + id)
+  }
+  getOpenTempInvoices(){
+    return this.http.get(`api/invoice/temp/all`)
+  }
+  deleteTempInvoice(id){
+
+    return this.http.delete(`api/invoice/temp/delete/` + id)
+  }
+  closeTempInvoice(){
+
   }
 }

@@ -1,0 +1,22 @@
+/* Create three unequal columns that floats next to each other */
+
+.column.side.menu {
+    width: 20%;
+    
+}
+
+
+/* Left and right column */
+
+.column.side {
+    width: 20%;
+    float: left;
+    padding: 5px;
+}
+
+
+/* Middle column */
+
+.column.middle {
+    width: 60%;
+}

@@ -58,6 +58,8 @@ import { ProductItemComponent } from './components/pos/product-list/product-item
 import { MenuCategoriesComponent } from './components/pos/product-list/menu-categories/menu-categories.component';
 import { CartHeaderComponent } from './components/pos/cart/cart-header/cart-header.component';
 import { InvShowComponent } from './components/inventory/inv-show/inv-show.component';
+import { TempInvoicesComponent } from './components/pos/temp-invoices/temp-invoices.component';
+import { ListTempComponent } from './components/pos/temp-invoices/list-temp/list-temp.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -107,6 +109,8 @@ import { InvShowComponent } from './components/inventory/inv-show/inv-show.compo
     MenuCategoriesComponent,
     CartHeaderComponent,
     InvShowComponent,
+    TempInvoicesComponent,
+    ListTempComponent,
     
   ],
   imports: [
