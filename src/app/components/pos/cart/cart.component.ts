@@ -21,7 +21,7 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
     this.handleSubscription();
-    this.loadCartItems();
+    //this.loadCartItems();
   }
 
   handleSubscription() {
@@ -44,6 +44,6 @@ export class CartComponent implements OnInit {
     })
   }
   payInvoice(){
-    this.posService.payTempInvoice(this.invId).subscribe(res => alert(res))
+    this.posService.payInvoice(this.invId).subscribe(res => alert(res))
   }
 }

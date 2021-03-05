@@ -24,14 +24,14 @@ export class PosService {
   }
   getCartItems(id): Observable<CartItem[]> {
     //TODO: Mapping the obtained result to our CartItem props. (pipe() and map())
-    return this.http.get<CartItem[]>(`api/invoice/temp/items/` + id).pipe(
+    return this.http.get<CartItem[]>(`api/invoice/items/` + id).pipe(
       map((result: any[]) => {
         let cartItems: CartItem[] = [];
 
         for (let cartItem of result) {
           let productExists = false
           for (let i in cartItems) {
-            if (cartItems[i].productId === cartItem.item._id) {
+            if (cartItems[i].productId === cartItem.products._id) {
               cartItems[i].qty++
               productExists = true
               break;
@@ -47,28 +47,28 @@ export class PosService {
   }
 
   addProductToCart(id, product: Product): Observable<any> {
-    return this.http.post(`api/invoice/temp/addItem/` + id, { product });
+    return this.http.put(`api/invoice/addItem/` + id, { product });
   }
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>('api/menu/all');
   }
   openNewInoice() {
-    return this.http.get<any[]>(`api/invoice/temp/new`);
+    return this.http.get<any[]>(`api/invoice/openNew`);
   }
-  getTempInvoice(id) {
-    return this.http.get(`api/invoice/temp/` + id)
+  getInvoice(id) {
+    return this.http.get(`api/invoice/` + id)
   }
-  payTempInvoice(id) {
-    return this.http.get(`api/invoice/temp/payInvoice/` + id)
+  payInvoice(id) {
+    return this.http.get(`api/invoice/payInvoice/` + id)
   }
-  getOpenTempInvoices(){
+  getOpenInvoices(){
     return this.http.get(`api/invoice/temp/all`)
   }
-  deleteTempInvoice(id){
+  deleteInvoice(id){
 
-    return this.http.delete(`api/invoice/temp/delete/` + id)
+    return this.http.delete(`api/invoice/` + id)
   }
-  closeTempInvoice(){
+  closeInvoice(){
 
   }
 }

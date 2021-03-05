@@ -16,7 +16,7 @@ export class TempInvoicesComponent implements OnInit {
     this.getAllTempInvoices()
   }
   getAllTempInvoices(){
-    this.posService.getOpenTempInvoices()
+    this.posService.getOpenInvoices()
     .subscribe(data => {
       this.tempInvoices = data
     console.log(this.tempInvoices)
