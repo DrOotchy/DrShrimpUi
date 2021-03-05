@@ -26,19 +26,18 @@ export class PosService {
     //TODO: Mapping the obtained result to our CartItem props. (pipe() and map())
     return this.http.get<CartItem[]>(`api/invoice/items/` + id).pipe(
       map((result: any[]) => {
-        let cartItems: CartItem[] = [];
-
+        let cartItems: CartItem[] = [];     
         for (let cartItem of result) {
           let productExists = false
           for (let i in cartItems) {
-            if (cartItems[i].productId === cartItem.products._id) {
+            if (cartItems[i].productId === cartItem._id._id) {
               cartItems[i].qty++
               productExists = true
               break;
             }
           }
           if (!productExists) {
-            cartItems.push(new CartItem(id, cartItem.item._id, cartItem.item.name, cartItem.price));
+            cartItems.push(new CartItem(id, cartItem._id._id, cartItem._id.name, cartItem.price));
           }
         }
         return cartItems;
