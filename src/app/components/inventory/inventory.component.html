@@ -22,7 +22,7 @@
                 <input type="search" onkeypress="searchName($event)" formControlName="name" id="defaultRegisterFormName" class="form-control" placeholder="search Name">
 
             </form>
-            <div *ngFor="let item of view; index as i">
+            <div class="scroll" *ngFor="let item of view; index as i">
                 <app-inventory-item [item]="item"></app-inventory-item>
             </div>
         </div>

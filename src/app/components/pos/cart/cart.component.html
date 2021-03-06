@@ -2,17 +2,21 @@
     <div class="invoiceHeader float-top">
         <app-cart-header [invId]="invId"></app-cart-header>
     </div>
-    <div *ngIf="cartItems.length === 0" class="alert alert-info">Your Cart is Empty.</div>
+    <div *ngIf="cartItems.length === 0" class="alert alert-info">No Items Yet !!!</div>
+    <div class="invoiceBody">
+        <ul *ngIf="cartItems.length > 0" class="list-group">
+            <div class="list-group-item" *ngFor="let item of cartItems">
+                <app-cart-item [cartItem]="item"></app-cart-item>
+            </div>
+        </ul>
+    </div>
 
-    <ul *ngIf="cartItems.length > 0" class="list-group">
-        <li class="list-group-item" *ngFor="let item of cartItems">
-            <app-cart-item [cartItem]="item"></app-cart-item>
-        </li>
-
-    </ul>
-
+    <div *ngIf="cartItems.length === 0" class="payBTN float-bottom">
+        <div class="list-group-item active text-center"><strong>Total</strong> </div>
+        <button class="btn btn-warning btn-block" (click)="cancelInvoice()">Cancel Invoice</button>
+    </div>
     <div *ngIf="cartItems.length > 0" class="payBTN float-bottom">
-        <div class="list-group-item active"><strong>Total</strong> {{ cartTotal | currency:'EGP ' }}</div>
+        <div class="list-group-item active text-center"><strong>Total</strong> {{ cartTotal | currency:'EGP ' }}</div>
         <button class="btn btn-warning btn-block" (click)="payInvoice()">Pay Invoice</button>
     </div>
 </div>

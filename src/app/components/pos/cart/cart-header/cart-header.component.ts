@@ -8,8 +8,9 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CartHeaderComponent implements OnInit {
   @Input() invId:any
   constructor() { }
-
+  Date = Date.now()
   ngOnInit(): void {
+
   }
 
 }

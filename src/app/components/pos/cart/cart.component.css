@@ -1,6 +1,18 @@
-.invoiceContainer{
+.invoiceContainer {
     display: flexbox;
+    height: 80vh
 }
-.payBTN{
-    align-self: flex-end
+
+.invoiceHeader {
+    height: 15%;
+}
+
+.invoiceBody {
+    height: 75%;
+}
+
+.payBTN {
+    align-self: flex-end;
+    float: inline-end;
+    height: 10%;
 }
