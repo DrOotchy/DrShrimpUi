@@ -1,17 +1,18 @@
-<div class="invoiceContainer block">
-  <div *ngIf="cartItems.length === 0" class="alert alert-info">Your Cart is Empty.</div>
+<div class="invoiceContainer">
+    <div class="invoiceHeader float-top">
+        <app-cart-header [invId]="invId"></app-cart-header>
+    </div>
+    <div *ngIf="cartItems.length === 0" class="alert alert-info">Your Cart is Empty.</div>
 
-<ul *ngIf="cartItems.length > 0" class="list-group">
-  <li class="list-group-item" *ngFor="let item of cartItems">
-    <app-cart-item [cartItem]="item"></app-cart-item>
-  </li>
+    <ul *ngIf="cartItems.length > 0" class="list-group">
+        <li class="list-group-item" *ngFor="let item of cartItems">
+            <app-cart-item [cartItem]="item"></app-cart-item>
+        </li>
 
-  <li class="list-group-item active">
-    <strong>Total</strong> {{ cartTotal | currency:'EGP ' }} 
-  </li>
-</ul>
+    </ul>
 
-<div *ngIf="cartItems.length > 0" class="payBTN">
-  <button class="btn btn-warning btn-block" (click)="payInvoice()" >Pay Invoice</button>
-</div>
+    <div *ngIf="cartItems.length > 0" class="payBTN float-bottom">
+        <div class="list-group-item active"><strong>Total</strong> {{ cartTotal | currency:'EGP ' }}</div>
+        <button class="btn btn-warning btn-block" (click)="payInvoice()">Pay Invoice</button>
+    </div>
 </div>

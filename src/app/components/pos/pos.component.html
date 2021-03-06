@@ -1,14 +1,14 @@
 <main>
     <section class="glass">
-        <div class="dashboard">
-            <app-menu-categories (newItemEvent)="listCategories($event)" ></app-menu-categories>
+        <div class="column side menu">
+            <app-menu-categories (newItemEvent)="listCategories($event)"></app-menu-categories>
         </div>
-        <div class="games">
+        <div class="column middle">
             <h3>Products</h3>
-            <app-product-list [invId]= "tempInvoiceID" [menuCategory] = "category"></app-product-list>
+            <app-product-list [invId]="tempInvoiceID" [menuCategory]="category"></app-product-list>
         </div>
-        <div class="invoice">
-            <app-cart [invId]= "tempInvoiceID"></app-cart>
+        <div class="column side invoice ">
+            <app-cart [invId]="tempInvoiceID"></app-cart>
         </div>
     </section>
 </main>

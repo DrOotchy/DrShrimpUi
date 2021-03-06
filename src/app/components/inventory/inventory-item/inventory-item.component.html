@@ -1,0 +1,43 @@
+<div class="card">
+    <div class="card-header flex ">
+        <div class="float-left row">
+            <h4 class="card-title">{{item.name}} -- {{item.altName}}</h4>
+        </div>
+        <div class="float-right row">
+            <a class="mb-0" (click)=toggleAdd(item)>
+                <h5>Re Stock</h5>
+            </a>
+            <span>------ </span>
+            <a class="mb-0" (click)=toggleStock(item)>
+                <h5>Show Stock</h5>
+            </a>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="card-body" *ngIf="showStock">
+
+        <h4>Purchases Total : {{itemTotal}} </h4>
+
+        <h5>Amount IN : {{amountIN}} {{stock[0].itemID.unit}} </h5>
+
+    </div>
+    <div *ngIf="showMe">
+        <app-inv-in [childMessage]="message"></app-inv-in>
+    </div>
+    <div class="card-body" *ngIf="showStock">
+        <table class="table table-warning">
+            <tbody>
+                <tr *ngFor="let item of stock; index as i">
+                    <td>{{item.amount_in}} {{item.itemID.unit}}</td>
+                    <td>{{item.pricePerUnit}} LE</td>
+                    <td>{{item.price}} LE</td>
+                    <td>{{item.supplier.name}}</td>
+                    <td>{{item.date | date: 'dd/MM/yyyy'}}</td>
+                </tr>
+        </table>
+    </div>
+</div>

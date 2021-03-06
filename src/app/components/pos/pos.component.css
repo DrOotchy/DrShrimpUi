@@ -1,31 +1,29 @@
 /* Create three unequal columns that floats next to each other */
 
-
-/* .column {
+.column {
     float: left;
     padding: 5px;
+    height: 100%;
 }
- */
 
 
 /* Left and right column */
 
-
-/* .column.side.menu {
-    width: 10%;
+.column.side.menu {
+    width: 15%;
 }
 
 .column.side.invoice {
-    width: 40%;
-} */
+    width: 20%;
+    height: 100%;
+}
 
 
 /* Middle column */
 
-
-/* .column.middle {
-    width: 50%;
-} */
+.column.middle {
+    width: 65%;
+}
 
 
 /* Clear floats after the columns */
@@ -271,7 +269,7 @@ main {
     padding: 0rem;
 }
 
-.invoice {
+.invoices {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -297,7 +295,6 @@ main {
     flex: 2.5;
     align-items: stretch;
     align-content: flex-start
-
 }
 
 .pro {

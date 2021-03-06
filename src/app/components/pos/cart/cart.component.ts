@@ -13,7 +13,7 @@ export class CartComponent implements OnInit {
   cartItems = [];
 
   cartTotal = 0
-
+  invoiceDetails
   constructor(
     private msg: MessengerService,
     private posService: PosService

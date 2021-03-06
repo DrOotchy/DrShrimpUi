@@ -60,6 +60,7 @@ import { CartHeaderComponent } from './components/pos/cart/cart-header/cart-head
 import { InvShowComponent } from './components/inventory/inv-show/inv-show.component';
 import { TempInvoicesComponent } from './components/pos/temp-invoices/temp-invoices.component';
 import { ListTempComponent } from './components/pos/temp-invoices/list-temp/list-temp.component';
+import { InventoryItemComponent } from './components/inventory/inventory-item/inventory-item.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -111,6 +112,7 @@ import { ListTempComponent } from './components/pos/temp-invoices/list-temp/list
     InvShowComponent,
     TempInvoicesComponent,
     ListTempComponent,
+    InventoryItemComponent,
     
   ],
   imports: [
