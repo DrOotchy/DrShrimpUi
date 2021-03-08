@@ -61,6 +61,7 @@ import { InvShowComponent } from './components/inventory/inv-show/inv-show.compo
 import { TempInvoicesComponent } from './components/pos/temp-invoices/temp-invoices.component';
 import { ListTempComponent } from './components/pos/temp-invoices/list-temp/list-temp.component';
 import { InventoryItemComponent } from './components/inventory/inventory-item/inventory-item.component';
+import { MenuItemComponent } from './components/the-menu/menu-item/menu-item.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -113,6 +114,7 @@ import { InventoryItemComponent } from './components/inventory/inventory-item/in
     TempInvoicesComponent,
     ListTempComponent,
     InventoryItemComponent,
+    MenuItemComponent,
     
   ],
   imports: [

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { InvOUTComponent } from './inv-out.component';
 
@@ -6,7 +6,7 @@ describe('InvOUTComponent', () => {
   let component: InvOUTComponent;
   let fixture: ComponentFixture<InvOUTComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ InvOUTComponent ]
     })

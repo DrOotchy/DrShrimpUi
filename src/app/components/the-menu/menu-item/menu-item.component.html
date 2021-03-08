@@ -1,0 +1,18 @@
+<div class="card bg-info">
+    <div class="card-header text-white row">
+      <h3  class="text-left">{{  + 1 }} - {{ item.name }} -- {{item.altName}}  ---  {{ item.price | currency:'EGP '}} </h3>
+      <p class="float-right"> {{ item.menuSection.name }}</p>
+    </div>
+    <div class="card-body bg-light row">
+      
+      <h5 class="card-subtitle">{{ item.description}}  -</h5>
+        
+      <h5 class="card-subtitle">-  {{item.altDesc}}</h5>
+    
+      <button class="btn btn-primary " (click)="editItem()">EDIT</button>
+      
+    </div>
+  </div>
+  <div *ngIf="edit">
+    edit form
+  </div>
