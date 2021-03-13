@@ -1,11 +1,15 @@
-
-<div class="col-12 col-sm-6 col-md-6 col-lg-3">
-    <div class="card">
+<div class="card">
     <div class="card-header">
-        {{ item.name }}
+        <h3>{{ item.name }} -- {{ item.mainNumber }}</h3>
+        <h6>{{ item.customerNumber }}</h6>
+        <button class="btn btn-primary float-left" [routerLink]="['/orders', item._id]">new
+            Order</button>
+        <button class="btn btn-secondary float-left" (click)="showDetails()">View
+            Details</button>
+
     </div>
-    <div class="card-body">
-        <label  *ngFor="let adress of item.address; index as x">
+    <div class="card-body" *ngIf="details">
+        <label *ngFor="let adress of item.address; index as x">
             Building No. :{{adress.buildingNo}}
             <br>Street: {{ adress.street }}
             <br>Floor: {{adress.floor}}
@@ -14,8 +18,7 @@
             <br>Area: {{adress.area}}
         </label>
     </div>
-    <div class="card-footer">
+    <div class="card-footer" *ngIf="details">
         {{ item.startDate | date:'shortDate' }}
     </div>
-</div>
 </div>

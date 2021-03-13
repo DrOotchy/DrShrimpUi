@@ -16,7 +16,7 @@
         <button class="btn btn-warning btn-block" (click)="cancelInvoice()">Cancel Invoice</button>
     </div>
     <div *ngIf="cartItems.length > 0" class="payBTN float-bottom">
-        <div class="list-group-item active text-center"><strong>Total</strong> {{ cartTotal | currency:'EGP ' }}</div>
+        <div class="list-group-item active text-center"><strong>Total </strong> {{ cartTotal  | currency:' EGP ' }}</div>
         <button class="btn btn-warning btn-block" (click)="payInvoice()">Pay Invoice</button>
     </div>
 </div>

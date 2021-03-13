@@ -47,6 +47,6 @@ export class CartComponent implements OnInit {
     this.posService.payInvoice(this.invId).subscribe(res => alert(res))
   }
   cancelInvoice(){
-    
+    this.posService.deleteInvoice(this.invId).subscribe(res => alert(res))
   }
 }
