@@ -61,7 +61,7 @@ export class PosService {
     return this.http.get(`api/invoice/payInvoice/` + id)
   }
   getOpenInvoices(){
-    return this.http.get(`api/invoice/temp/all`)
+    return this.http.get(`api/invoice/getOpenInvoices`)
   }
   deleteInvoice(id){
 

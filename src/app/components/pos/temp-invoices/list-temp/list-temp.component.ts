@@ -13,7 +13,7 @@ export class ListTempComponent implements OnInit {
 
   }
   closeInvoice(){
-    console.log(this.item._id)
+    console.log(this.item)
     return this.posService.deleteInvoice(this.item._id)
     .subscribe(data =>{ 
       alert(data + 'invoice closed successfully')
