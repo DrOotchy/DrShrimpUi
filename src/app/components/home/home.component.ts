@@ -8,15 +8,18 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   public cards = [{
     name: 'Take away',
-    link: '/orders'
+    link: '/orders',
+    linkTxt: 'Order'
   },
 {
   name: 'Delivery',
-  link: '/Delivery'
+  link: '/Delivery',
+  linkTxt: 'Order'
 },
 {
   name: 'Open Invoices',
-  link: '/tempInovices'
+  link: '/tempInovices',
+  linkTxt: 'View'
 }
 ];
   constructor() { }
