@@ -22,7 +22,10 @@
                         <input type="search" onkeypress="searchName($event)" formControlName="name"
                             id="defaultRegisterFormName" class="form-control" placeholder="search Name">
                     </form>
-                    <table class="table table-striped">
+                    <div class="scroll" *ngFor="let item of allInvent; index as i">
+                        <app-inventory-item [item]="item"></app-inventory-item>
+                    </div>
+                    <!-- <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -39,10 +42,13 @@
                                 <td><button class="btn btn-secondary" (click)=getitemTotal(inv._id)>purchases</button>
                                 </td>
                             </tr>
-                    </table>
+                    </table> -->
                 </div>
                 <div *ngIf="showFilter">
-                    <table class="table table-striped">
+                    <div class="scroll" *ngFor="let item of view; index as i">
+                        <app-inventory-item [item]="item"></app-inventory-item>
+                    </div>
+                    <!-- <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -63,7 +69,7 @@
                                 <td><button class="btn btn-secondary" (click)=getitemTotal(inv._id)>purchases</button>
                                 </td>
                             </tr>
-                    </table>
+                    </table> -->
                 </div>
             </div>
             <div class="column side">
