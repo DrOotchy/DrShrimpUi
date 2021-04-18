@@ -28,7 +28,6 @@ export class ListInvItemViewComponent implements OnInit {
     this.message.id = item._id
     this.message.name = item.name
     this.showStock = false
-  
     this.showMe = true
   }
   toggleStock(item) {

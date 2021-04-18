@@ -29,11 +29,12 @@ export class ListInventoryComponent implements OnInit {
       startDate: new FormControl(''),
       endDate: new FormControl('')
     })
+    
   }
 
   getAllInventoryItems() {
     return this.inventoryService.getAllInventoryItems()
-      .subscribe(data => this.allInvent = data);
+      .subscribe(data =>{ this.allInvent = data, console.log(this.allInvent)});
   }
 
   getAllNCount() {
