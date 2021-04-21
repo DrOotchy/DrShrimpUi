@@ -10,6 +10,7 @@ import { InventoryService } from '../../../services/inventory.service';
 export class ListInventoryComponent implements OnInit {
   searchNameForm
   public allInvent = []
+  public sorted = []
   view
   grandTotal
   dateFilterForm
@@ -24,7 +25,7 @@ export class ListInventoryComponent implements OnInit {
     this.searchNameForm = new FormGroup({
       name: new FormControl('')
     })
-    this.getAllInventoryItems()
+    this.getSortedItems()
     this.dateFilterForm = new FormGroup({
       startDate: new FormControl(''),
       endDate: new FormControl('')
@@ -34,9 +35,12 @@ export class ListInventoryComponent implements OnInit {
 
   getAllInventoryItems() {
     return this.inventoryService.getAllInventoryItems()
-      .subscribe(data =>{ this.allInvent = data, console.log(this.allInvent)});
+      .subscribe(data =>{ this.allInvent = data});
   }
-
+  getSortedItems() {
+    return this.inventoryService.getSorted()
+      .subscribe(data =>{ this.sorted = data});
+  }
   getAllNCount() {
     return this.inventoryService.getAllInventoryIn()
       .subscribe(data => {

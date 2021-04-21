@@ -12,27 +12,25 @@ export class ListInvItemViewComponent implements OnInit {
 
   message = {
     name: String,
-    id: String
+    id: String,
+    altName: String,
+    category: Object,
+    brand: Object,
+    purchases: Array
   }
   stock: [];
   itemTotal;
   amountIN;
-  showMe: boolean = false
   showStock: boolean = false
 
   constructor(private inventoryService: InventoryService) { }
 
   ngOnInit(): void {
+    console.log(this.item)
   }
-  toggleAdd(item) {
-    this.message.id = item._id
-    this.message.name = item.name
-    this.showStock = false
-    this.showMe = true
-  }
+
   toggleStock(item) {
     this.getStockID(item._id)
-    this.showMe = false
    
     this.showStock = true
   }

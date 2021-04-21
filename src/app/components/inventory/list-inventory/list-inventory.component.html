@@ -21,8 +21,8 @@
                         <span class="fa fa-search form-control-feedback"></span>
                         <input type="search" onkeypress="searchName($event)" formControlName="name" id="defaultRegisterFormName" class="form-control" placeholder="search Name">
                     </form>
-                    <div class="scroll" *ngFor="let item of allInvent; index as i">
-                        <app-list-inv-item-view [item]></app-list-inv-item-view>
+                    <div class="scroll" *ngFor="let item of sorted; index as i">
+                        <app-list-inv-item-view [item]="item"></app-list-inv-item-view>
                         <!-- <app-inventory-item [item]="item"></app-inventory-item> -->
                     </div>
                     <!-- <table class="table table-striped">
