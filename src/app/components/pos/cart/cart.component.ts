@@ -3,6 +3,7 @@ import { MessengerService } from 'src/app/services/messenger.service';
 import { Product } from 'src/app/interfaces/product';
 import { CartItem } from 'src/app/interfaces/cart-item';
 import { PosService } from 'src/app/services/pos.service';
+import { Router, ActivatedRoute, ParamMap  } from '@angular/router';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -16,7 +17,8 @@ export class CartComponent implements OnInit {
   invoiceDetails
   constructor(
     private msg: MessengerService,
-    private posService: PosService
+    private posService: PosService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -45,6 +47,8 @@ export class CartComponent implements OnInit {
   }
   payInvoice(){
     this.posService.payInvoice(this.invId).subscribe(res => alert(res))
+
+    this.router.navigate(['/checkout/'+ this.invId])
   }
   cancelInvoice(){
     this.posService.deleteInvoice(this.invId).subscribe(res => alert(res))

@@ -64,6 +64,7 @@ import { InventoryItemComponent } from './components/inventory/inventory-item/in
 import { MenuItemComponent } from './components/the-menu/menu-item/menu-item.component';
 import { CheckoutComponent } from './components/pos/checkout/checkout.component';
 import { ListInvItemViewComponent } from './components/inventory/list-inv-item-view/list-inv-item-view.component';
+import { PnfComponent } from './components/pnf/pnf.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -119,6 +120,7 @@ import { ListInvItemViewComponent } from './components/inventory/list-inv-item-v
     MenuItemComponent,
     CheckoutComponent,
     ListInvItemViewComponent,
+    PnfComponent,
     
   ],
   imports: [
