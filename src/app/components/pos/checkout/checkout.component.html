@@ -1,7 +1,46 @@
 <div class="conatainer flex">
     <div class="float-left">
         <div>
-            <h3>{{invoice._id}}</h3>
+            <h2>Dr. Shrimp</h2>
+            <h5>56 Ahmed Fakhry St</h5>
+            <h5>Nasr City</h5>
+
+            <h5>Invoice Number : {{invoiceData.invoiceNumber}}</h5>
+            <p> Date Time : {{invoiceData.orderDateTime}}</p>
+        </div>
+        <div>
+            <table class="table table-sripped table-sm">
+                <thead>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Special</th>
+                    <th>QTTY</th>
+                    <th>Price</th>
+
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of invoiceData.products">
+                        <td></td>
+                        <td>{{item._id.name}}</td>
+                        <td>{{item.specialRequest}}</td>
+                        <td>{{item.quantity}}</td>
+                        <td>{{item.price}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <p>----------------------------------</p>
+            <h6>Sub Total: {{invoiceData.subTotal || 0}} </h6>
+            <h6>Vat : {{invoiceData.vat || 0}} </h6>
+            <h6>Discount: {{invoiceData.discount || 0}} </h6>
+            <p>----------------------------------</p>
+            <h5>Total: {{grandTotal}}</h5>
+        </div>
+        <div>
+            <p>----------------------------------</p>
+            <p>{{invoiceData._id}}</p>
+            <h5>Served With Pleasure</h5>
         </div>
     </div>
     <div class="float-right">

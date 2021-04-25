@@ -46,9 +46,8 @@ export class CartComponent implements OnInit {
     })
   }
   payInvoice(){
-    this.posService.payInvoice(this.invId).subscribe(res => alert(res))
+    this.posService.payInvoice(this.invId, this.cartTotal).subscribe(res => res?this.router.navigate(['/checkout/'+ this.invId]): alert('errrrrror '))
 
-    this.router.navigate(['/checkout/'+ this.invId])
   }
   cancelInvoice(){
     this.posService.deleteInvoice(this.invId).subscribe(res => alert(res))

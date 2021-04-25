@@ -9,7 +9,8 @@ import { PosService } from 'src/app/services/pos.service';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
-  invoiceData 
+  invoiceData
+  grandTotal
 
   constructor(
     private route: ActivatedRoute,
@@ -23,6 +24,10 @@ export class CheckoutComponent implements OnInit {
   }
 
   getInvoice() {
-    this.posService.getInvoice(this.invoice).subscribe(res => {console.log(res), this.invoiceData = res})
+    this.posService.getInvoice(this.invoice).subscribe(res => {
+      console.log(res),
+        this.invoiceData = res,
+        this.grandTotal = this.invoiceData.subTotal + (this.invoiceData.vat || 0) - (this.invoiceData.discount || 0)
+    })
   }
 }
