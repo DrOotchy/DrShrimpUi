@@ -45,8 +45,8 @@ export class CartComponent implements OnInit {
       this.cartTotal += (item.qty * item.price)
     })
   }
-  payInvoice(){
-    this.posService.payInvoice(this.invId, this.cartTotal).subscribe(res => res?this.router.navigate(['/checkout/'+ this.invId]): alert('errrrrror '))
+  checkout(){
+    this.posService.checkoutNPay(this.invId, this.cartTotal).subscribe(res => res?this.router.navigate(['/checkout/'+ this.invId]): alert('errrrrror '))
 
   }
   cancelInvoice(){

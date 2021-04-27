@@ -57,6 +57,9 @@ export class PosService {
   getInvoice(id) {
     return this.http.get(`api/invoice/` + id)
   }
+  checkoutNPay(id, subTotal){
+    return this.http.put(`api/invoice/payInvoice/` + id, {subTotal} )
+  }
   payInvoice(id, subTotal) {
     return this.http.put(`api/invoice/payInvoice/` + id, {subTotal} )
   }
