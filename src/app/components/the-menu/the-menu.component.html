@@ -1,19 +1,21 @@
-<div class="jumbotron">
-
-    <div class=" row">
-        <div class="col"></div>
-        <h1 class="float-left">Dr Shrimp menu</h1>
-
-        <div class="col">
-            <app-add-menu-item></app-add-menu-item>
-        </div>
+<div class="jumbotron col">
+  <div class="row">
+    <app-add-menu-item></app-add-menu-item>
+  </div>
+  <div class="row">
+      <div class="column side menu">
+    <div class="col">
+      <app-menu-categories (newItemEvent)="listCategories($event)"></app-menu-categories>
     </div>
-    <br />
-    <div>
-        <table class="table table-primary table-striped table-sm table-hover">
-            <tbody *ngFor="let item of themenu; index as i">
-                <app-menu-item [item]="item"></app-menu-item>
-            </tbody>
-        </table>
-    </div>
+
+  </div>
+  <div class="column middle">
+    <table class="table table-primary table-striped table-sm table-hover">
+      <tbody *ngFor="let item of view; index as i">
+        <app-menu-item [item]="item"></app-menu-item>
+      </tbody>
+    </table>
+  </div>
+  </div>
+
 </div>
