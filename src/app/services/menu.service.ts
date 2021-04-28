@@ -26,4 +26,11 @@ export class MenuService {
   getPOSview(): Observable<IPos[]> {
     return this.http.get<IPos[]>(`api/menu/POSview`);
   }
+  addMenuItem(data): Observable<any> {
+    return this.http.post(`api/menu/new`, data);
+  }
+  editMenuItem(id, data) {
+    return this.http.put(`api/menu/` + id, {data} )
+  }
+
 }

@@ -34,9 +34,7 @@ export class InvINComponent implements OnInit {
     })    
   }
   onSubmit() {
-      console.log(this.itemID)
-      console.log(this.childMessage.id)
-      console.log(this.invINForm)
+    
       this.inventoryService.inventoryIn(this.invINForm.value)
       .subscribe(res => {
         alert(res.invIN.itemID + ' ' + res.message)

@@ -12,7 +12,7 @@ export class TheMenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTheMenu();
-    console.log(this.themenu)
+    this.getMenuCategories();
   }
   getTheMenu(){
     return this.menuServices.getMenu()
@@ -22,5 +22,10 @@ export class TheMenuComponent implements OnInit {
     return this.menuServices.getSubMenu(sub)
     .subscribe(data => this.themenu = data);
   }
-
+  async getMenuCategories(){
+    await this.menuServices.getCategories()
+    .subscribe(res => {
+      console.log(res)
+    })
+  }
 }

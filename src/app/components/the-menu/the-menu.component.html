@@ -1,15 +1,19 @@
 <div class="jumbotron">
-  <div class=" row">
-    <h1>Dr Shrimp menu</h1>
-    <span> </span>
-    <button class="btn btn-secondary align-left" [routerLink]="['/additem']">Add Item</button>
-  </div>
-  <br />
-  <div>
-    <table class="table table-primary table-striped table-sm table-hover">
-      <tbody *ngFor="let item of themenu; index as i">
-        <app-menu-item [item]="item"></app-menu-item>
-      </tbody>
-    </table>
-  </div>
+
+    <div class=" row">
+        <div class="col"></div>
+        <h1 class="float-left">Dr Shrimp menu</h1>
+
+        <div class="col">
+            <app-add-menu-item></app-add-menu-item>
+        </div>
+    </div>
+    <br />
+    <div>
+        <table class="table table-primary table-striped table-sm table-hover">
+            <tbody *ngFor="let item of themenu; index as i">
+                <app-menu-item [item]="item"></app-menu-item>
+            </tbody>
+        </table>
+    </div>
 </div>
