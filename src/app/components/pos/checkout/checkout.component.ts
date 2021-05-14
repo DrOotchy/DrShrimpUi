@@ -31,10 +31,10 @@ export class CheckoutComponent implements OnInit {
   }
   checkout() {
  
-    // let printContents = document.getElementById("printable").innerHTML;
-    //  let originalContents = document.body.innerHTML;
+    let printContents = document.getElementById("printable").innerHTML;
+     let originalContents = document.body.innerHTML;
 
-    //  document.body.innerHTML = printContents;
+     document.body.innerHTML = printContents;
 
     window.print();
 
