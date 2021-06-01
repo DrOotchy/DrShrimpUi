@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PosService } from 'src/app/services/pos.service';
 
-
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',

@@ -67,6 +67,18 @@ import { ListInvItemViewComponent } from './components/inventory/list-inv-item-v
 import { PnfComponent } from './components/pnf/pnf.component';
 import { AddMenuItemComponent } from './components/the-menu/add-menu-item/add-menu-item.component';
 import { EditMenuItemComponent } from './components/the-menu/edit-menu-item/edit-menu-item.component';
+import { NgxPrintModule } from 'ngx-print';
+import { StuffdetailsComponent } from './components/stuff/stuffdetails/stuffdetails.component';
+import { StuffNewComponent } from './components/stuff/stuff-new/stuff-new.component';
+import { StuffAddComponent } from './components/stuff/stuff-add/stuff-add.component';
+import { StuffListComponent } from './components/stuff/stuff-list/stuff-list.component';
+import { StuffAttendanceComponent } from './components/stuff/stuff-attendance/stuff-attendance.component';
+import { StuffSalariesComponent } from './components/stuff/stuff-salaries/stuff-salaries.component';
+import { DailySalesComponent } from './components/admin/daily-sales/daily-sales.component';
+import { DailyExpensesComponent } from './components/admin/daily-expenses/daily-expenses.component';
+import { DailySummeryComponent } from './components/admin/daily-summery/daily-summery.component';
+import { AdminSideNavComponent } from './components/admin/admin-side-nav/admin-side-nav.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -125,6 +137,16 @@ import { EditMenuItemComponent } from './components/the-menu/edit-menu-item/edit
     PnfComponent,
     AddMenuItemComponent,
     EditMenuItemComponent,
+    StuffdetailsComponent,
+    StuffNewComponent,
+    StuffAddComponent,
+    StuffListComponent,
+    StuffAttendanceComponent,
+    StuffSalariesComponent,
+    DailySalesComponent,
+    DailyExpensesComponent,
+    DailySummeryComponent,
+    AdminSideNavComponent,
     
   ],
   imports: [
@@ -133,7 +155,8 @@ import { EditMenuItemComponent } from './components/the-menu/edit-menu-item/edit
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPrintModule
   ],
   providers: [AuthService, AuthGuard, DashboardService, MenuService, SuppliersService, CompetitorsService,
     {
