@@ -1,0 +1,20 @@
+.column {
+    float: left;
+    padding: 5px;
+    height: 100%;
+}
+
+
+/* Left and right column */
+
+.column.side.menu {
+    width: 15%;
+}
+
+.column.side.right {
+    width: 20%;
+    height: 100%;
+}
+.column.middle {
+    width: 65%;
+}

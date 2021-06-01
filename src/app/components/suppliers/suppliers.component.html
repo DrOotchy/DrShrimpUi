@@ -1,18 +1,12 @@
 <div class="jumbotron">
-    <div class="row">
-        
-    </div>
     <div>
         <ul class="nav nav-tabs">
             <li class="nav-item" *ngFor="let item of allInvent; index as i">
                 <button class="btn btn-warning" (click)="getView(item._id)">{{item.name}}</button>
             </li>
-
         </ul>
     </div>
-
-
-    <div class="column middle" >
+    <div class="column middle">
         <table class="table table-sm">
             <thead>
                 <tr>
@@ -37,7 +31,7 @@
         </table>
     </div>
     <div class="column add">
-<app-new></app-new>
+        <app-new></app-new>
     </div>
 
 

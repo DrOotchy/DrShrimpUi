@@ -28,6 +28,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { TempInvoicesComponent } from './components/pos/temp-invoices/temp-invoices.component';
 import { CheckoutComponent } from './components/pos/checkout/checkout.component';
 import { PnfComponent } from './components/pnf/pnf.component';
+import { StuffComponent } from './components/stuff/stuff.component';
 const routes: Routes = [
   {
     path: 'login',
@@ -167,9 +168,14 @@ const routes: Routes = [
     path: 'checkout/:_id',
     component: CheckoutComponent,
     canActivate: [AuthGuard]
+  },{
+    path: 'stuff',
+    component: StuffComponent,
+    canActivate: [AuthGuard]
   },
   { path: '**', component: PnfComponent },  // Wildcard route for a 404 page
-
+  
+  
 ];
 
 @NgModule({

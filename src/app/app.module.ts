@@ -78,6 +78,8 @@ import { DailySalesComponent } from './components/admin/daily-sales/daily-sales.
 import { DailyExpensesComponent } from './components/admin/daily-expenses/daily-expenses.component';
 import { DailySummeryComponent } from './components/admin/daily-summery/daily-summery.component';
 import { AdminSideNavComponent } from './components/admin/admin-side-nav/admin-side-nav.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StuffComponent } from './components/stuff/stuff.component';
 
 @NgModule({
   declarations: [
@@ -147,6 +149,7 @@ import { AdminSideNavComponent } from './components/admin/admin-side-nav/admin-s
     DailyExpensesComponent,
     DailySummeryComponent,
     AdminSideNavComponent,
+    StuffComponent,
     
   ],
   imports: [
@@ -156,7 +159,9 @@ import { AdminSideNavComponent } from './components/admin/admin-side-nav/admin-s
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgxPrintModule
+    NgxPrintModule,
+    BrowserAnimationsModule,
+   
   ],
   providers: [AuthService, AuthGuard, DashboardService, MenuService, SuppliersService, CompetitorsService,
     {
