@@ -70,7 +70,11 @@ export class PosService {
 
     return this.http.delete(`api/invoice/` + id)
   }
+  salesSummary(date){
+    return this.http.post('api/invoice/salesSummary',{date})
+  }
   closeInvoice(){
 
   }
+  
 }

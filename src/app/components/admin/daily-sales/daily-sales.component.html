@@ -1,1 +1,21 @@
 <p>daily-sales works!</p>
+<p> sales: {{salesSummary.count}}</p>
+<p> Total Income: {{salesSummary.total}}</p>
+<table>
+    <thead>
+        <th>#</th>
+        <th>delivery</th>
+        <th>isPaid</th>
+        <th>Paid</th>
+        <th>subtotal</th>
+    </thead>
+    <tbody *ngFor="let item of salesSummary.response" >
+        <tr>
+            <td>{{item.invoiceNumber}}</td>
+            <td>{{item.delivery}}</td>
+            <td>{{item.isPaid}}</td>
+            <td>{{item.paid}}</td>
+            <td>{{item.subTotal}}</td>
+        </tr>
+    </tbody>
+</table>

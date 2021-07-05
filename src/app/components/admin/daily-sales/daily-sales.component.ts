@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PosService } from '../../../services/pos.service';
 
 @Component({
   selector: 'app-daily-sales',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./daily-sales.component.css']
 })
 export class DailySalesComponent implements OnInit {
-
-  constructor() { }
+  salesSummary
+  constructor(private posService: PosService) { }
 
   ngOnInit(): void {
+
+    this.getSummary(Date.now())
+  }
+  getSummary(date){
+    return this.posService.salesSummary(Date.now()).subscribe(res=> {this.salesSummary = res, console.log(res)} )
   }
 
+
+  
 }
