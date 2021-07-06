@@ -25,30 +25,13 @@
                         <app-list-inv-item-view [item]="item"></app-list-inv-item-view>
                         <!-- <app-inventory-item [item]="item"></app-inventory-item> -->
                     </div>
-                    <!-- <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Unit</th>
-                                <th scope="col">purchases</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let inv of allInvent; index as i">
-                                <td>{{ i + 1}}</td>
-                                <td>{{inv.name}}</td>
-                                <td>{{inv.unit}}</td>
-                                <td><button class="btn btn-secondary" (click)=getitemTotal(inv._id)>purchases</button>
-                                </td>
-                            </tr>
-                    </table> -->
+  
                 </div>
                 <div *ngIf="showFilter">
-                    <div class="scroll" *ngFor="let item of view; index as i">
-                        <app-inventory-item [item]="item"></app-inventory-item>
-                    </div>
-                    <!-- <table class="table table-striped">
+                    <!-- <div class="scroll" *ngFor="let item of view; index as i">
+                        <app-list-inv-item-view [item]="item"></app-list-inv-item-view>
+                    </div> -->
+                    <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -69,7 +52,7 @@
                                 <td><button class="btn btn-secondary" (click)=getitemTotal(inv._id)>purchases</button>
                                 </td>
                             </tr>
-                    </table> -->
+                    </table>
                 </div>
             </div>
             <div class="column side">

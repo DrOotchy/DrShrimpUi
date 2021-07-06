@@ -11,7 +11,7 @@ export class ListInventoryComponent implements OnInit {
   searchNameForm
   public allInvent = []
   public sorted = []
-  view
+  public view = []
   grandTotal
   dateFilterForm
   dateFilterResult
@@ -69,8 +69,9 @@ export class ListInventoryComponent implements OnInit {
   filterdate() {
     return this.inventoryService.getInventoryByDate(this.dateFilterForm.value)
     .subscribe(data => {
+      console.log(data)
       this.dateFilterResult = data
-    this.view = this.dateFilterResult
+    this.view = data.fullSchema
     let filterTotal = 0
     for (let i = 0; i < data.length; i++) {
       filterTotal = filterTotal+ data[i].price;

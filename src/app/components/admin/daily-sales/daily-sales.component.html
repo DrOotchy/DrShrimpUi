@@ -1,3 +1,18 @@
+<div>
+    <div>
+    <form [formGroup]="dateFilterForm" (ngSubmit)="getSummary2()" class="form-group">
+        <label>Start Date: </label>
+        <br />
+        <input type="date" formControlName="startDate" id="defaultStartDate" class="form-control">
+        <br />
+        <label>End Date: </label>
+        <br />
+        <input type="date" formControlName="endDate" id="defaultEndDate" class="form-control">
+        <br />
+        <button class="btn btn-secondary block2 float-left" type="submit">Filter</button>
+    </form>
+    </div>
+    <div>
 <p>daily-sales works!</p>
 <p> sales: {{salesSummary.count}}</p>
 <p> Total Income: {{salesSummary.total}}</p>
@@ -19,3 +34,5 @@
         </tr>
     </tbody>
 </table>
+    </div>
+</div>
